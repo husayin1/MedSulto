@@ -10,7 +10,8 @@ import SwiftUI
 struct FilterSheet: View {
     @State private var accreditedIsOn: Bool = false
     @State private var freeIsOn: Bool = false
-    
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
         VStack {
             HStack {
@@ -127,6 +128,9 @@ struct FilterSheet: View {
                     }.padding()
                     Button {
                         print("Apply Filters")
+                        //for dismissing the sheet
+                        presentationMode.wrappedValue.dismiss()
+
                     } label: {
                         Text("Apply Filters")
                             .foregroundColor(.white)

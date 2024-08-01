@@ -8,14 +8,23 @@
 import Foundation
 import Combine
 class Repository: RepositoryProtocol {
+    
+    
     let networkService: RemoteDataSource
     
     init(networkService: RemoteDataSource) {
         self.networkService = networkService
     }
-
+    
+    //this is new edit
     func getAllCourses() -> AnyPublisher<CMELandingResponse, NetworkError> {
         return networkService.getAllCourses()
     }
+    
+    func getSearchResult(name: String) -> AnyPublisher<CMELandingResponse, NetworkError> {
+        return networkService.searchForCoursesBy(name: name)
+    }
 }
+
+
 

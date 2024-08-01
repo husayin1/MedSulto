@@ -16,7 +16,8 @@ class CMEViewModel: ObservableObject {
     @Published var allCourses: [Course] = []
     @Published var error: NetworkError?
     @Published var courses: CMELandingResponse?
-    let repository: RepositoryProtocol = Repository(networkService: APIClient())
+    private let repository: RepositoryProtocol = Repository(networkService: CMERemoteSource())
+
     
     func getAllCourses() {
           repository.getAllCourses()
@@ -37,4 +38,24 @@ class CMEViewModel: ObservableObject {
               })
               .store(in: &cancellables)
       }
+    
+    func searchForCourses(inputText: String){
+        repository.getSearchResult(name: inputText)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    print("result is here")
+                case .failure(let err):
+                    print(err, "on search")
+                }
+            } receiveValue: { [weak self] response in
+                self?.courses = response
+                self?.popularCourses = response.data.popularCourses
+                self?.continueCourses = response.data.continueCourses
+                self?.savedCourses = response.data.savedCourses
+                self?.allCourses = response.data.All
+            }
+            .store(in: &cancellables)
+
+    }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var viewModel = CMEViewModel()
-    @State var txt:String = ""
+    @State var inputSearchText:String = ""
     @State var isPresented: Bool = false
     @State var settingsDetents = PresentationDetent.medium
     
@@ -20,7 +20,15 @@ struct MainView: View {
                     Spacer()
                     HStack{
                         HStack(spacing: 15){
-                            TextField("What are you looking for?", text: $txt)
+                            TextField("What are you looking for?", text: $inputSearchText)
+                                .onSubmit {
+                                    print("search for \(inputSearchText)")
+                                    if inputSearchText.isEmpty {
+                                        viewModel.getAllCourses()
+                                    } else {
+                                        viewModel.searchForCourses(inputText: inputSearchText)
+                                    }
+                                }
                             
                             Button {
                                 self.isPresented = true
@@ -80,6 +88,7 @@ struct MainView: View {
                 
             }.onAppear{
                 viewModel.getAllCourses()
+                inputSearchText = ""
             }
         }
         

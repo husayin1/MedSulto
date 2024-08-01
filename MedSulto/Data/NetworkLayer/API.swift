@@ -15,10 +15,10 @@ struct EndPoint: API {
 
 enum MedSultoResource {
     case cmeLandingPage
-
+    case searchForCoursesWith
     var endpoint: String {
         switch self {
-        case .cmeLandingPage:
+        case .cmeLandingPage, .searchForCoursesWith:
             return "GetCMELandingPage"
         }
     }

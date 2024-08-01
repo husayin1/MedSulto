@@ -7,9 +7,7 @@
 
 import Foundation
 import Combine
-
-protocol APIClientType {
+protocol RemoteDataSource {
     func getAllCourses()-> AnyPublisher<CMELandingResponse, NetworkError>
+    func searchForCoursesBy(name: String) -> AnyPublisher<CMELandingResponse, NetworkError> 
 }
-
-typealias RemoteDataSource = APIClientType
