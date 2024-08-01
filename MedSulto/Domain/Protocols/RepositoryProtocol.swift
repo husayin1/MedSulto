@@ -9,6 +9,6 @@ import Foundation
 import Combine
 protocol RepositoryProtocol {
     func getAllCourses()-> AnyPublisher<CMELandingResponse, NetworkError>
-
+    func getSearchResult(name: String) -> AnyPublisher<CMELandingResponse, NetworkError> 
 }
 

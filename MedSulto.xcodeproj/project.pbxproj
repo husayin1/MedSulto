@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5620CE762C5AC41900170E76 /* CMERemoteSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620CE752C5AC41900170E76 /* CMERemoteSource.swift */; };
+		5620CE782C5AC6F600170E76 /* APIClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620CE772C5AC6F600170E76 /* APIClientType.swift */; };
 		562CB42E2C5A1209000BF453 /* ContinueLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB42D2C5A1209000BF453 /* ContinueLearningView.swift */; };
 		562CB4302C5A1293000BF453 /* BrowseAllCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB42F2C5A1293000BF453 /* BrowseAllCoursesView.swift */; };
 		562CB44E2C5A1B13000BF453 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB44D2C5A1B13000BF453 /* NetworkError.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5620CE752C5AC41900170E76 /* CMERemoteSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMERemoteSource.swift; sourceTree = "<group>"; };
+		5620CE772C5AC6F600170E76 /* APIClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientType.swift; sourceTree = "<group>"; };
 		562CB42D2C5A1209000BF453 /* ContinueLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueLearningView.swift; sourceTree = "<group>"; };
 		562CB42F2C5A1293000BF453 /* BrowseAllCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseAllCoursesView.swift; sourceTree = "<group>"; };
 		562CB44D2C5A1B13000BF453 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -95,7 +99,7 @@
 		562CB4312C5A14E6000BF453 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				562CB4432C5A1701000BF453 /* FiltersAndSearch */,
+				562CB4432C5A1701000BF453 /* Filters */,
 				562CB4392C5A15DE000BF453 /* CMEs */,
 				562CB4342C5A1550000BF453 /* CertificatesList */,
 			);
@@ -115,6 +119,7 @@
 		562CB4332C5A14F5000BF453 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				562CB44C2C5A1AFD000BF453 /* NetworkLayer */,
 				562CB4482C5A17ED000BF453 /* Repository */,
 				562CB4472C5A17E6000BF453 /* RemoteDataSource */,
 			);
@@ -254,14 +259,14 @@
 			path = CMEView;
 			sourceTree = "<group>";
 		};
-		562CB4432C5A1701000BF453 /* FiltersAndSearch */ = {
+		562CB4432C5A1701000BF453 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
 				562CB4462C5A1713000BF453 /* ViewModel */,
 				562CB4452C5A170F000BF453 /* Model */,
 				562CB4442C5A170A000BF453 /* View */,
 			);
-			path = FiltersAndSearch;
+			path = Filters;
 			sourceTree = "<group>";
 		};
 		562CB4442C5A170A000BF453 /* View */ = {
@@ -289,7 +294,7 @@
 		562CB4472C5A17E6000BF453 /* RemoteDataSource */ = {
 			isa = PBXGroup;
 			children = (
-				562CB44C2C5A1AFD000BF453 /* NetworkLayer */,
+				5620CE752C5AC41900170E76 /* CMERemoteSource.swift */,
 			);
 			path = RemoteDataSource;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 				562CB45C2C5A22F4000BF453 /* RemoteDataSourceProtocol.swift */,
 				562CB45E2C5A24B4000BF453 /* RepositoryProtocol.swift */,
 				562CB4642C5A546B000BF453 /* APIProtocol.swift */,
+				5620CE772C5AC6F600170E76 /* APIClientType.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 				562CB4302C5A1293000BF453 /* BrowseAllCoursesView.swift in Sources */,
 				56E0CB122C593AD6007A80B0 /* SavedCoursesSection.swift in Sources */,
 				562CB4582C5A1D2E000BF453 /* API.swift in Sources */,
+				5620CE762C5AC41900170E76 /* CMERemoteSource.swift in Sources */,
 				56E0CB292C595BE1007A80B0 /* CertificatesSection.swift in Sources */,
 				56E0CB152C593CE2007A80B0 /* AllCoursesSection.swift in Sources */,
 				562CB4612C5A24F4000BF453 /* CMEViewModel.swift in Sources */,
@@ -606,6 +613,7 @@
 				56E0CB1B2C5944FD007A80B0 /* ProgressLine.swift in Sources */,
 				56E0CB1E2C594A2B007A80B0 /* ContinueLearningSection.swift in Sources */,
 				56E0CB082C592479007A80B0 /* AllCourseCardView.swift in Sources */,
+				5620CE782C5AC6F600170E76 /* APIClientType.swift in Sources */,
 				562CB45F2C5A24B4000BF453 /* RepositoryProtocol.swift in Sources */,
 				562CB4632C5A4390000BF453 /* CMEModel.swift in Sources */,
 				56E0CB0C2C592C74007A80B0 /* BackgroundView.swift in Sources */,

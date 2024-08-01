@@ -10,19 +10,20 @@ import Alamofire
 
 enum APIRoute: URLRequestConvertible {
     
-    case getCMELandingPage(specialtiesIds: [Int] = [1])
+    case getCMELandingPage
+    case searchForCoursesWith(name: String)
     
 
     var method: HTTPMethod {
         switch self {
-        case .getCMELandingPage:
+        case .getCMELandingPage, .searchForCoursesWith:
             return .get
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .getCMELandingPage:
+        case .getCMELandingPage, .searchForCoursesWith:
             return URLEncoding.default
         }
     }
@@ -30,7 +31,9 @@ enum APIRoute: URLRequestConvertible {
     var parameters: [String: Any]? {
             switch self {
             case .getCMELandingPage:
-                return ["SpecialtiesIds": 1]
+                return nil
+            case .searchForCoursesWith(let name):
+                return ["SearchKeyword" : name]
             }
         }
     
@@ -38,7 +41,7 @@ enum APIRoute: URLRequestConvertible {
     
     var path: String {
         switch self {
-        case .getCMELandingPage:
+        case .getCMELandingPage, .searchForCoursesWith:
             return MedSultoResource.cmeLandingPage.endpoint
 
         }
@@ -46,13 +49,13 @@ enum APIRoute: URLRequestConvertible {
     
     var authorizationHeader: HTTPHeaderField? {
         switch self {
-        case .getCMELandingPage:
+        case .getCMELandingPage, .searchForCoursesWith:
             return .authorization
         }
     }
     var authorizationType: AuthorizationType {
         switch self {
-        case .getCMELandingPage:
+        case .getCMELandingPage, .searchForCoursesWith:
             return .bearer
         }
     }

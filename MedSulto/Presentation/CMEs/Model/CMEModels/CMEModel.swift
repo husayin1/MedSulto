@@ -94,3 +94,5 @@ struct Pagination: Codable {
     let totalItems: Int
 }
 
+//Entity is to get the backend response -> convert entity l model yt3rd 3l ui (Y)
+//Use Cases:- mapping el model 
