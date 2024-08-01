@@ -31,8 +31,15 @@ struct SavedCoursesSection: View {
             }
             ScrollView(.horizontal,showsIndicators: false){
                 HStack(spacing: 20){
-                    ForEach(viewModel.savedCourses.prefix(3), id: \.id) { course in
-                        SavedCourseCardView(course: course)
+                    if let courses = viewModel.savedCourses {
+                        ForEach(courses.prefix(3), id: \.id) { course in
+                            SavedCourseCardView(course: course)
+                        }
+                    } else if let error = viewModel.error {
+                        Text("error in \(error.localizedDescription)")
+                            .foregroundColor(.red)
+                    } else {
+                        ProgressView()
                     }
                 }
                 .padding(.horizontal,10)

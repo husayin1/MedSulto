@@ -10,10 +10,10 @@ import Combine
 
 class CMEViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
-    @Published var popularCourses: [Course] = []
-    @Published var continueCourses: [Course] = []
-    @Published var savedCourses: [Course] = []
-    @Published var allCourses: [Course] = []
+    @Published var popularCourses: [Course]?
+    @Published var continueCourses: [Course]?
+    @Published var savedCourses: [Course]?
+    @Published var allCourses: [Course]?
     @Published var error: NetworkError?
     @Published var courses: CMELandingResponse?
     private let repository: RepositoryProtocol = Repository(networkService: CMERemoteSource())

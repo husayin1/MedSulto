@@ -31,9 +31,18 @@ struct ContinueLearningSection: View {
             }
             ScrollView(.horizontal,showsIndicators: false){
                 HStack(spacing: 20){
-                    ForEach(viewModel.continueCourses, id: \.id) { course in
-                        ContinueLearningCardView(course: course)
+                    
+                    if let courses = viewModel.continueCourses {
+                        ForEach(courses, id: \.id) { course in
+                            ContinueLearningCardView(course: course)
+                        }
+                    } else if let error = viewModel.error {
+                        Text("error in \(error.localizedDescription)")
+                            .foregroundColor(.red)
+                    } else {
+                        ProgressView()
                     }
+                    
                 }
                 .padding(.horizontal,10)
                 .padding(.vertical,6)

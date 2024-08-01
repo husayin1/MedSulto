@@ -29,8 +29,16 @@ struct PopularCoursesSection: View {
             }
             ScrollView(.horizontal,showsIndicators: false){
                 HStack(spacing: 20){
-                    ForEach(viewModel.popularCourses.prefix(4), id: \.id) { course in
-                        PopularCourseCardView(course: course)
+                    if let courses = viewModel.popularCourses {
+                        
+                        ForEach(courses.prefix(4), id: \.id) { course in
+                            PopularCourseCardView(course: course)
+                        }
+                    }  else if let error = viewModel.error {
+                        Text("error in \(error.localizedDescription)")
+                            .foregroundColor(.red)
+                    } else {
+                        ProgressView()
                     }
                 }
                 .padding(.horizontal,10)
