@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class CMEViewModel: ObservableObject {
-    private var cancellables = Set<AnyCancellable>()
+    private var cancellables: Set<AnyCancellable>
     @Published var popularCourses: [Course]?
     @Published var continueCourses: [Course]?
     @Published var savedCourses: [Course]?
@@ -20,6 +20,8 @@ class CMEViewModel: ObservableObject {
     
     init(){
         self.repository = CMEsRepository()
+        self.cancellables = Set<AnyCancellable>()
+
     }
 
     

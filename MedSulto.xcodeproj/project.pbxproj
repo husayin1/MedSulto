@@ -29,6 +29,7 @@
 		56AD92962C5BF9420072324B /* CMEApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD92952C5BF9420072324B /* CMEApiClientProtocol.swift */; };
 		56AD92992C5C01CC0072324B /* CertificatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD92982C5C01CC0072324B /* CertificatesModel.swift */; };
 		56AD929B2C5C03F90072324B /* CertificatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD929A2C5C03F90072324B /* CertificatesViewModel.swift */; };
+		56AD92A12C5C0C5F0072324B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD92A02C5C0C5F0072324B /* SearchBar.swift */; };
 		56E0CB062C592447007A80B0 /* PopularCourseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0CB052C592447007A80B0 /* PopularCourseCardView.swift */; };
 		56E0CB082C592479007A80B0 /* AllCourseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0CB072C592479007A80B0 /* AllCourseCardView.swift */; };
 		56E0CB0A2C592990007A80B0 /* SavedCourseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0CB092C592990007A80B0 /* SavedCourseCardView.swift */; };
@@ -70,6 +71,7 @@
 		56AD92952C5BF9420072324B /* CMEApiClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMEApiClientProtocol.swift; sourceTree = "<group>"; };
 		56AD92982C5C01CC0072324B /* CertificatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificatesModel.swift; sourceTree = "<group>"; };
 		56AD929A2C5C03F90072324B /* CertificatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificatesViewModel.swift; sourceTree = "<group>"; };
+		56AD92A02C5C0C5F0072324B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		56E0CB052C592447007A80B0 /* PopularCourseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCourseCardView.swift; sourceTree = "<group>"; };
 		56E0CB072C592479007A80B0 /* AllCourseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCourseCardView.swift; sourceTree = "<group>"; };
 		56E0CB092C592990007A80B0 /* SavedCourseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCourseCardView.swift; sourceTree = "<group>"; };
@@ -246,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				56E0CB2A2C59606E007A80B0 /* CommonViews */,
-				56E0CB162C593E39007A80B0 /* BackgroundView */,
 				562CB4402C5A1684000BF453 /* PopularCourses */,
 				56E0CB312C5966BA007A80B0 /* ContinueLearning */,
 				562CB43F2C5A1669000BF453 /* SavedCourses */,
@@ -497,8 +498,10 @@
 		56E0CB2A2C59606E007A80B0 /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
+				56E0CB162C593E39007A80B0 /* BackgroundView */,
 				56E0CB1A2C5944FD007A80B0 /* ProgressLine.swift */,
 				56E0CB2C2C59608E007A80B0 /* CustomBackButton.swift */,
+				56AD92A02C5C0C5F0072324B /* SearchBar.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -514,8 +517,8 @@
 		56E0CB312C5966BA007A80B0 /* ContinueLearning */ = {
 			isa = PBXGroup;
 			children = (
-				56E0CB1C2C594A00007A80B0 /* ContinueLearningSection */,
 				562CB43E2C5A1645000BF453 /* ContinueLearningView */,
+				56E0CB1C2C594A00007A80B0 /* ContinueLearningSection */,
 			);
 			path = ContinueLearning;
 			sourceTree = "<group>";
@@ -530,8 +533,8 @@
 		56E0CB332C5966CC007A80B0 /* BrowseAllCourses */ = {
 			isa = PBXGroup;
 			children = (
-				56E0CB132C593CB6007A80B0 /* AllSection */,
 				562CB43D2C5A1629000BF453 /* AllView */,
+				56E0CB132C593CB6007A80B0 /* AllSection */,
 			);
 			path = BrowseAllCourses;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				562CB44E2C5A1B13000BF453 /* NetworkError.swift in Sources */,
 				562CB4562C5A1C72000BF453 /* APIClient.swift in Sources */,
 				563965272C58FBC000354ACC /* ContentView.swift in Sources */,
+				56AD92A12C5C0C5F0072324B /* SearchBar.swift in Sources */,
 				56E0CB262C595B5F007A80B0 /* CertificatesView.swift in Sources */,
 				562CB4302C5A1293000BF453 /* BrowseAllCoursesView.swift in Sources */,
 				56E0CB122C593AD6007A80B0 /* SavedCoursesSection.swift in Sources */,

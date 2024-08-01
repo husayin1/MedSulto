@@ -9,13 +9,14 @@ import Foundation
 import Combine
 
 class CertificatesViewModel: ObservableObject {
-    private var cancellables = Set<AnyCancellable>()
+    private var cancellables: Set<AnyCancellable>
     @Published var userCertificates: [CertificateItem]?
     @Published var error: NetworkError?
     private let repository: CMEsRepositoryProtocol
     
     init(){
         self.repository = CMEsRepository()
+        self.cancellables = Set<AnyCancellable>()
     }
 
     

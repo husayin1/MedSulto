@@ -8,48 +8,12 @@
 import SwiftUI
 
 struct BrowseAllCoursesView: View {
-    @State private var txt:String = ""
-    @State private var isPresented: Bool = false
-    @State private var settingsDetents = PresentationDetent.large
     @ObservedObject var viewModel: CMEViewModel
     var body: some View {
         BackgroundView{ geometry in
             VStack(alignment: .leading){
                 Spacer()
-                HStack{
-                    HStack(spacing: 15){
-                        TextField("What are you looking for?", text: $txt)
-                        
-                        Button {
-                            self.isPresented = true
-                            print("open sheet")
-                        } label: {
-                            Image("filter")
-                        }
-                        .padding(.trailing,8)
-                        .sheet(isPresented: $isPresented, content: {
-                            FilterSheet()
-                                .presentationDetents([.medium,.large], selection: $settingsDetents)
-                        })
-                    }
-                    
-                    .padding(.vertical,12)
-                    .padding(.horizontal)
-                    .background(Color.white)
-                    .clipShape(Capsule())
-                    .padding([.leading,.top,.bottom],16)
-                    .padding(.trailing,4)
-                    
-                    NavigationLink(destination: CertificatesView()) {
-                        
-                        Image("certified")
-                            .padding(.all,8)
-                            .background(Color.white)
-                            .clipShape(Circle())
-                    }
-                    .padding(.trailing,16)
-                    
-                }.padding(.horizontal,10)
+                SearchBar(viewModel: viewModel)
                 VStack{
                     RoundedRectangle(cornerRadius: 30.0)
                         .frame(height: geometry.size.height * 0.80)
@@ -67,7 +31,6 @@ struct BrowseAllCoursesView: View {
                                     ScrollView(.vertical,showsIndicators: false){
                                         VStack(spacing: 20){
                                             if let courses = viewModel.allCourses {
-                                                
                                                 ForEach(courses, id: \.id) { course in
                                                     AllCourseCardView(course: course)
                                                 }
