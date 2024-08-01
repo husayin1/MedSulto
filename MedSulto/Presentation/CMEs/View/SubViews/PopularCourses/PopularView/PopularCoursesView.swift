@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct PopularCoursesView: View {
-    @State var txt:String = ""
-    @State var isPresented: Bool = false
-    @State var settingsDetents = PresentationDetent.large
+    @State private var txt:String = ""
+    @State private var isPresented: Bool = false
+    @State private var settingsDetents = PresentationDetent.large
     @ObservedObject var viewModel: CMEViewModel
 
     

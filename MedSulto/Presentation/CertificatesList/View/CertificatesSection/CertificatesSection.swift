@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct CertificatesSection: View {
+    @ObservedObject var viewModel: CertificatesViewModel
     var body: some View {
         VStack{
             ScrollView(.vertical,showsIndicators: false){
                 VStack(spacing: 20){
-                    CertificateCardView()
-                    CertificateCardView()
-                    CertificateCardView()
-                    CertificateCardView()
+                    if let certificates = viewModel.userCertificates {
+                        ForEach(certificates, id: \.id) { certificate in
+                            CertificateCardView(certificate: certificate)
+                        }.padding(.all,4)
+                    } else if let error = viewModel.error {
+                        Text("Error \(error.localizedDescription)")
+                            .foregroundColor(.red)
+                    } else {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
+                    
                 }
                 .padding(.horizontal,10)
                 .padding(.vertical,6)
@@ -26,6 +36,6 @@ struct CertificatesSection: View {
 
 struct CertificatesSection_Previews: PreviewProvider {
     static var previews: some View {
-        CertificatesSection()
+        CertificatesSection(viewModel: CertificatesViewModel())
     }
 }

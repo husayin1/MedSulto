@@ -9,11 +9,9 @@ import Foundation
 import Alamofire
 import Combine
 
-
-
-class APIClient: APIClientType {
+class APIClient: APIClientTypeProtocol {
     //maybe make singleton
-    func performRequest<T: Decodable>(route: APIRoute) -> AnyPublisher<T, NetworkError> {
+    func performRequest<T: Decodable>(route: CMEAPIRoute) -> AnyPublisher<T, NetworkError> {
         let urlRequest: URLRequest
         do {
             urlRequest = try route.asURLRequest()
@@ -45,4 +43,5 @@ class APIClient: APIClientType {
             }
             .eraseToAnyPublisher()
     }
+    
 }

@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject var viewModel = CMEViewModel()
-    @State var inputSearchText:String = ""
-    @State var isPresented: Bool = false
-    @State var settingsDetents = PresentationDetent.medium
+    @StateObject private var viewModel = CMEViewModel()
+    @State private var inputSearchText:String = ""
+    @State private var isPresented: Bool = false
+    @State private var settingsDetents = PresentationDetent.medium
     
     var body: some View {
         NavigationView {

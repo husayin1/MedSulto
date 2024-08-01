@@ -7,26 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5620CE762C5AC41900170E76 /* CMERemoteSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620CE752C5AC41900170E76 /* CMERemoteSource.swift */; };
-		5620CE782C5AC6F600170E76 /* APIClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620CE772C5AC6F600170E76 /* APIClientType.swift */; };
+		5620CE762C5AC41900170E76 /* CMEApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620CE752C5AC41900170E76 /* CMEApiClient.swift */; };
+		5620CE782C5AC6F600170E76 /* APIClientTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620CE772C5AC6F600170E76 /* APIClientTypeProtocol.swift */; };
 		562CB42E2C5A1209000BF453 /* ContinueLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB42D2C5A1209000BF453 /* ContinueLearningView.swift */; };
 		562CB4302C5A1293000BF453 /* BrowseAllCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB42F2C5A1293000BF453 /* BrowseAllCoursesView.swift */; };
 		562CB44E2C5A1B13000BF453 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB44D2C5A1B13000BF453 /* NetworkError.swift */; };
 		562CB4512C5A1BED000BF453 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 562CB4502C5A1BED000BF453 /* Alamofire */; };
-		562CB4532C5A1BFB000BF453 /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB4522C5A1BFB000BF453 /* APIRoute.swift */; };
+		562CB4532C5A1BFB000BF453 /* CMEAPIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB4522C5A1BFB000BF453 /* CMEAPIRoute.swift */; };
 		562CB4562C5A1C72000BF453 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB4552C5A1C72000BF453 /* APIClient.swift */; };
-		562CB4582C5A1D2E000BF453 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB4572C5A1D2E000BF453 /* API.swift */; };
-		562CB45A2C5A228D000BF453 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB4592C5A228D000BF453 /* Repository.swift */; };
-		562CB45D2C5A22F4000BF453 /* RemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB45C2C5A22F4000BF453 /* RemoteDataSourceProtocol.swift */; };
-		562CB45F2C5A24B4000BF453 /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB45E2C5A24B4000BF453 /* RepositoryProtocol.swift */; };
+		562CB4582C5A1D2E000BF453 /* CMEResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB4572C5A1D2E000BF453 /* CMEResources.swift */; };
+		562CB45A2C5A228D000BF453 /* CMEsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB4592C5A228D000BF453 /* CMEsRepository.swift */; };
+		562CB45F2C5A24B4000BF453 /* CMEsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB45E2C5A24B4000BF453 /* CMEsRepositoryProtocol.swift */; };
 		562CB4612C5A24F4000BF453 /* CMEViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB4602C5A24F4000BF453 /* CMEViewModel.swift */; };
 		562CB4632C5A4390000BF453 /* CMEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB4622C5A4390000BF453 /* CMEModel.swift */; };
-		562CB4652C5A546B000BF453 /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB4642C5A546B000BF453 /* APIProtocol.swift */; };
 		563965252C58FBC000354ACC /* MedSultoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563965242C58FBC000354ACC /* MedSultoApp.swift */; };
 		563965272C58FBC000354ACC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563965262C58FBC000354ACC /* ContentView.swift */; };
 		563965292C58FBC300354ACC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 563965282C58FBC300354ACC /* Assets.xcassets */; };
 		5639652C2C58FBC300354ACC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5639652B2C58FBC300354ACC /* Preview Assets.xcassets */; };
 		563965352C58FDBD00354ACC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563965342C58FDBD00354ACC /* MainView.swift */; };
+		56AD92942C5BF5030072324B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD92932C5BF5030072324B /* Constants.swift */; };
+		56AD92962C5BF9420072324B /* CMEApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD92952C5BF9420072324B /* CMEApiClientProtocol.swift */; };
+		56AD92992C5C01CC0072324B /* CertificatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD92982C5C01CC0072324B /* CertificatesModel.swift */; };
+		56AD929B2C5C03F90072324B /* CertificatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD929A2C5C03F90072324B /* CertificatesViewModel.swift */; };
 		56E0CB062C592447007A80B0 /* PopularCourseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0CB052C592447007A80B0 /* PopularCourseCardView.swift */; };
 		56E0CB082C592479007A80B0 /* AllCourseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0CB072C592479007A80B0 /* AllCourseCardView.swift */; };
 		56E0CB0A2C592990007A80B0 /* SavedCourseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0CB092C592990007A80B0 /* SavedCourseCardView.swift */; };
@@ -46,26 +48,28 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5620CE752C5AC41900170E76 /* CMERemoteSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMERemoteSource.swift; sourceTree = "<group>"; };
-		5620CE772C5AC6F600170E76 /* APIClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientType.swift; sourceTree = "<group>"; };
+		5620CE752C5AC41900170E76 /* CMEApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMEApiClient.swift; sourceTree = "<group>"; };
+		5620CE772C5AC6F600170E76 /* APIClientTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTypeProtocol.swift; sourceTree = "<group>"; };
 		562CB42D2C5A1209000BF453 /* ContinueLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueLearningView.swift; sourceTree = "<group>"; };
 		562CB42F2C5A1293000BF453 /* BrowseAllCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseAllCoursesView.swift; sourceTree = "<group>"; };
 		562CB44D2C5A1B13000BF453 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		562CB4522C5A1BFB000BF453 /* APIRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
+		562CB4522C5A1BFB000BF453 /* CMEAPIRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMEAPIRoute.swift; sourceTree = "<group>"; };
 		562CB4552C5A1C72000BF453 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		562CB4572C5A1D2E000BF453 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		562CB4592C5A228D000BF453 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		562CB45C2C5A22F4000BF453 /* RemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
-		562CB45E2C5A24B4000BF453 /* RepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProtocol.swift; sourceTree = "<group>"; };
+		562CB4572C5A1D2E000BF453 /* CMEResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMEResources.swift; sourceTree = "<group>"; };
+		562CB4592C5A228D000BF453 /* CMEsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMEsRepository.swift; sourceTree = "<group>"; };
+		562CB45E2C5A24B4000BF453 /* CMEsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMEsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		562CB4602C5A24F4000BF453 /* CMEViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMEViewModel.swift; sourceTree = "<group>"; };
 		562CB4622C5A4390000BF453 /* CMEModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMEModel.swift; sourceTree = "<group>"; };
-		562CB4642C5A546B000BF453 /* APIProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		563965212C58FBC000354ACC /* MedSulto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedSulto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		563965242C58FBC000354ACC /* MedSultoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedSultoApp.swift; sourceTree = "<group>"; };
 		563965262C58FBC000354ACC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		563965282C58FBC300354ACC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5639652B2C58FBC300354ACC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		563965342C58FDBD00354ACC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		56AD92932C5BF5030072324B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		56AD92952C5BF9420072324B /* CMEApiClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMEApiClientProtocol.swift; sourceTree = "<group>"; };
+		56AD92982C5C01CC0072324B /* CertificatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificatesModel.swift; sourceTree = "<group>"; };
+		56AD929A2C5C03F90072324B /* CertificatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificatesViewModel.swift; sourceTree = "<group>"; };
 		56E0CB052C592447007A80B0 /* PopularCourseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCourseCardView.swift; sourceTree = "<group>"; };
 		56E0CB072C592479007A80B0 /* AllCourseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCourseCardView.swift; sourceTree = "<group>"; };
 		56E0CB092C592990007A80B0 /* SavedCourseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCourseCardView.swift; sourceTree = "<group>"; };
@@ -111,7 +115,7 @@
 			children = (
 				562CB4672C5A55FA000BF453 /* UseCases */,
 				562CB4662C5A55F5000BF453 /* Entity */,
-				562CB45B2C5A22B9000BF453 /* Protocols */,
+				562CB45B2C5A22B9000BF453 /* CMERepoProtocol */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -119,8 +123,7 @@
 		562CB4332C5A14F5000BF453 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				562CB44C2C5A1AFD000BF453 /* NetworkLayer */,
-				562CB4482C5A17ED000BF453 /* Repository */,
+				562CB4482C5A17ED000BF453 /* CMERepository */,
 				562CB4472C5A17E6000BF453 /* RemoteDataSource */,
 			);
 			path = Data;
@@ -149,6 +152,7 @@
 		562CB4362C5A1564000BF453 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				56AD92972C5C01BE0072324B /* CertificatesModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,6 +160,7 @@
 		562CB4372C5A1568000BF453 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				56AD929A2C5C03F90072324B /* CertificatesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -294,17 +299,18 @@
 		562CB4472C5A17E6000BF453 /* RemoteDataSource */ = {
 			isa = PBXGroup;
 			children = (
-				5620CE752C5AC41900170E76 /* CMERemoteSource.swift */,
+				5620CE752C5AC41900170E76 /* CMEApiClient.swift */,
+				56AD92952C5BF9420072324B /* CMEApiClientProtocol.swift */,
 			);
 			path = RemoteDataSource;
 			sourceTree = "<group>";
 		};
-		562CB4482C5A17ED000BF453 /* Repository */ = {
+		562CB4482C5A17ED000BF453 /* CMERepository */ = {
 			isa = PBXGroup;
 			children = (
-				562CB4592C5A228D000BF453 /* Repository.swift */,
+				562CB4592C5A228D000BF453 /* CMEsRepository.swift */,
 			);
-			path = Repository;
+			path = CMERepository;
 			sourceTree = "<group>";
 		};
 		562CB4492C5A1931000BF453 /* CMEModels */ = {
@@ -319,22 +325,20 @@
 			isa = PBXGroup;
 			children = (
 				562CB44D2C5A1B13000BF453 /* NetworkError.swift */,
-				562CB4522C5A1BFB000BF453 /* APIRoute.swift */,
+				562CB4522C5A1BFB000BF453 /* CMEAPIRoute.swift */,
 				562CB4552C5A1C72000BF453 /* APIClient.swift */,
-				562CB4572C5A1D2E000BF453 /* API.swift */,
+				5620CE772C5AC6F600170E76 /* APIClientTypeProtocol.swift */,
+				562CB4572C5A1D2E000BF453 /* CMEResources.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
-		562CB45B2C5A22B9000BF453 /* Protocols */ = {
+		562CB45B2C5A22B9000BF453 /* CMERepoProtocol */ = {
 			isa = PBXGroup;
 			children = (
-				562CB45C2C5A22F4000BF453 /* RemoteDataSourceProtocol.swift */,
-				562CB45E2C5A24B4000BF453 /* RepositoryProtocol.swift */,
-				562CB4642C5A546B000BF453 /* APIProtocol.swift */,
-				5620CE772C5AC6F600170E76 /* APIClientType.swift */,
+				562CB45E2C5A24B4000BF453 /* CMEsRepositoryProtocol.swift */,
 			);
-			path = Protocols;
+			path = CMERepoProtocol;
 			sourceTree = "<group>";
 		};
 		562CB4662C5A55F5000BF453 /* Entity */ = {
@@ -370,6 +374,8 @@
 		563965232C58FBC000354ACC /* MedSulto */ = {
 			isa = PBXGroup;
 			children = (
+				56AD92922C5BF4F40072324B /* Constants */,
+				562CB44C2C5A1AFD000BF453 /* NetworkLayer */,
 				562CB4332C5A14F5000BF453 /* Data */,
 				562CB4322C5A14EE000BF453 /* Domain */,
 				562CB4312C5A14E6000BF453 /* Presentation */,
@@ -395,6 +401,22 @@
 				563965262C58FBC000354ACC /* ContentView.swift */,
 			);
 			path = AppView;
+			sourceTree = "<group>";
+		};
+		56AD92922C5BF4F40072324B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				56AD92932C5BF5030072324B /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		56AD92972C5C01BE0072324B /* CertificatesModel */ = {
+			isa = PBXGroup;
+			children = (
+				56AD92982C5C01CC0072324B /* CertificatesModel.swift */,
+			);
+			path = CertificatesModel;
 			sourceTree = "<group>";
 		};
 		56E0CB042C59240E007A80B0 /* CoursesCells */ = {
@@ -591,7 +613,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				56E0CB302C5962A9007A80B0 /* PopularCoursesView.swift in Sources */,
-				562CB45D2C5A22F4000BF453 /* RemoteDataSourceProtocol.swift in Sources */,
 				56E0CB232C595A7F007A80B0 /* CertificateCardView.swift in Sources */,
 				562CB44E2C5A1B13000BF453 /* NetworkError.swift in Sources */,
 				562CB4562C5A1C72000BF453 /* APIClient.swift in Sources */,
@@ -599,22 +620,25 @@
 				56E0CB262C595B5F007A80B0 /* CertificatesView.swift in Sources */,
 				562CB4302C5A1293000BF453 /* BrowseAllCoursesView.swift in Sources */,
 				56E0CB122C593AD6007A80B0 /* SavedCoursesSection.swift in Sources */,
-				562CB4582C5A1D2E000BF453 /* API.swift in Sources */,
-				5620CE762C5AC41900170E76 /* CMERemoteSource.swift in Sources */,
+				562CB4582C5A1D2E000BF453 /* CMEResources.swift in Sources */,
+				5620CE762C5AC41900170E76 /* CMEApiClient.swift in Sources */,
 				56E0CB292C595BE1007A80B0 /* CertificatesSection.swift in Sources */,
 				56E0CB152C593CE2007A80B0 /* AllCoursesSection.swift in Sources */,
 				562CB4612C5A24F4000BF453 /* CMEViewModel.swift in Sources */,
 				56E0CB0A2C592990007A80B0 /* SavedCourseCardView.swift in Sources */,
-				562CB4532C5A1BFB000BF453 /* APIRoute.swift in Sources */,
+				562CB4532C5A1BFB000BF453 /* CMEAPIRoute.swift in Sources */,
+				56AD929B2C5C03F90072324B /* CertificatesViewModel.swift in Sources */,
+				56AD92962C5BF9420072324B /* CMEApiClientProtocol.swift in Sources */,
 				56E0CB0F2C593A2C007A80B0 /* PopularCoursesSection.swift in Sources */,
 				56E0CB212C595033007A80B0 /* FilterSheet.swift in Sources */,
 				56E0CB192C59421C007A80B0 /* ContinueLearningCardView.swift in Sources */,
-				562CB4652C5A546B000BF453 /* APIProtocol.swift in Sources */,
 				56E0CB1B2C5944FD007A80B0 /* ProgressLine.swift in Sources */,
 				56E0CB1E2C594A2B007A80B0 /* ContinueLearningSection.swift in Sources */,
+				56AD92992C5C01CC0072324B /* CertificatesModel.swift in Sources */,
 				56E0CB082C592479007A80B0 /* AllCourseCardView.swift in Sources */,
-				5620CE782C5AC6F600170E76 /* APIClientType.swift in Sources */,
-				562CB45F2C5A24B4000BF453 /* RepositoryProtocol.swift in Sources */,
+				5620CE782C5AC6F600170E76 /* APIClientTypeProtocol.swift in Sources */,
+				56AD92942C5BF5030072324B /* Constants.swift in Sources */,
+				562CB45F2C5A24B4000BF453 /* CMEsRepositoryProtocol.swift in Sources */,
 				562CB4632C5A4390000BF453 /* CMEModel.swift in Sources */,
 				56E0CB0C2C592C74007A80B0 /* BackgroundView.swift in Sources */,
 				563965352C58FDBD00354ACC /* MainView.swift in Sources */,
@@ -622,7 +646,7 @@
 				563965252C58FBC000354ACC /* MedSultoApp.swift in Sources */,
 				562CB42E2C5A1209000BF453 /* ContinueLearningView.swift in Sources */,
 				56E0CB062C592447007A80B0 /* PopularCourseCardView.swift in Sources */,
-				562CB45A2C5A228D000BF453 /* Repository.swift in Sources */,
+				562CB45A2C5A228D000BF453 /* CMEsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

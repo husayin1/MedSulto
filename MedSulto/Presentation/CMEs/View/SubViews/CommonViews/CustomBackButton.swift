@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct CustomBackButton: View {
-    @Environment(\.presentationMode) var presentationMode
-
-
+    @Environment(\.presentationMode) private var presentationMode
     var body: some View {
         Button(action: {
             self.presentationMode.wrappedValue.dismiss()

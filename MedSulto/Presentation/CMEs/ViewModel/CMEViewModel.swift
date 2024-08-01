@@ -16,7 +16,11 @@ class CMEViewModel: ObservableObject {
     @Published var allCourses: [Course]?
     @Published var error: NetworkError?
     @Published var courses: CMELandingResponse?
-    private let repository: RepositoryProtocol = Repository(networkService: CMERemoteSource())
+    private let repository: CMEsRepositoryProtocol
+    
+    init(){
+        self.repository = CMEsRepository()
+    }
 
     
     func getAllCourses() {

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct BrowseAllCoursesView: View {
-    @State var txt:String = ""
-    @State var isPresented: Bool = false
-    @State var settingsDetents = PresentationDetent.large
+    @State private var txt:String = ""
+    @State private var isPresented: Bool = false
+    @State private var settingsDetents = PresentationDetent.large
     @ObservedObject var viewModel: CMEViewModel
     var body: some View {
         BackgroundView{ geometry in
@@ -57,7 +57,7 @@ struct BrowseAllCoursesView: View {
                         .overlay(
                             VStack{
                                 HStack{
-                                    Text("Popular Courses")
+                                    Text("All Courses")
                                         .fontWeight(.semibold)
                                     Spacer()
                                     
