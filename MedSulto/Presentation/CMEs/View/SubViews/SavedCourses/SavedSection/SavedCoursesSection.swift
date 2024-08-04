@@ -39,7 +39,9 @@ struct SavedCoursesSection: View {
                         Text("error in \(error.localizedDescription)")
                             .foregroundColor(.red)
                     } else {
-                        ProgressView()
+                        Spacer()
+                        ProgressView().foregroundColor(.blue)
+                        Spacer()
                     }
                 }
                 .padding(.horizontal,10)

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56163FE62C5C21A200441DA6 /* CMEsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56163FE52C5C21A200441DA6 /* CMEsEntity.swift */; };
+		56163FE82C5C21B600441DA6 /* CertificatesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56163FE72C5C21B600441DA6 /* CertificatesEntity.swift */; };
+		56163FEA2C5C227300441DA6 /* CMEsUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56163FE92C5C227300441DA6 /* CMEsUseCases.swift */; };
+		56163FEE2C5C229900441DA6 /* CertificatesUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56163FED2C5C229900441DA6 /* CertificatesUseCases.swift */; };
 		5620CE762C5AC41900170E76 /* CMEApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620CE752C5AC41900170E76 /* CMEApiClient.swift */; };
 		5620CE782C5AC6F600170E76 /* APIClientTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620CE772C5AC6F600170E76 /* APIClientTypeProtocol.swift */; };
 		562CB42E2C5A1209000BF453 /* ContinueLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB42D2C5A1209000BF453 /* ContinueLearningView.swift */; };
@@ -26,7 +30,7 @@
 		5639652C2C58FBC300354ACC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5639652B2C58FBC300354ACC /* Preview Assets.xcassets */; };
 		563965352C58FDBD00354ACC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563965342C58FDBD00354ACC /* MainView.swift */; };
 		56AD92942C5BF5030072324B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD92932C5BF5030072324B /* Constants.swift */; };
-		56AD92962C5BF9420072324B /* CMEApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD92952C5BF9420072324B /* CMEApiClientProtocol.swift */; };
+		56AD92962C5BF9420072324B /* CMEsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD92952C5BF9420072324B /* CMEsProtocol.swift */; };
 		56AD92992C5C01CC0072324B /* CertificatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD92982C5C01CC0072324B /* CertificatesModel.swift */; };
 		56AD929B2C5C03F90072324B /* CertificatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD929A2C5C03F90072324B /* CertificatesViewModel.swift */; };
 		56AD92A12C5C0C5F0072324B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD92A02C5C0C5F0072324B /* SearchBar.swift */; };
@@ -49,6 +53,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56163FE52C5C21A200441DA6 /* CMEsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMEsEntity.swift; sourceTree = "<group>"; };
+		56163FE72C5C21B600441DA6 /* CertificatesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificatesEntity.swift; sourceTree = "<group>"; };
+		56163FE92C5C227300441DA6 /* CMEsUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMEsUseCases.swift; sourceTree = "<group>"; };
+		56163FED2C5C229900441DA6 /* CertificatesUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificatesUseCases.swift; sourceTree = "<group>"; };
 		5620CE752C5AC41900170E76 /* CMEApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMEApiClient.swift; sourceTree = "<group>"; };
 		5620CE772C5AC6F600170E76 /* APIClientTypeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTypeProtocol.swift; sourceTree = "<group>"; };
 		562CB42D2C5A1209000BF453 /* ContinueLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueLearningView.swift; sourceTree = "<group>"; };
@@ -68,7 +76,7 @@
 		5639652B2C58FBC300354ACC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		563965342C58FDBD00354ACC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		56AD92932C5BF5030072324B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		56AD92952C5BF9420072324B /* CMEApiClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMEApiClientProtocol.swift; sourceTree = "<group>"; };
+		56AD92952C5BF9420072324B /* CMEsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMEsProtocol.swift; sourceTree = "<group>"; };
 		56AD92982C5C01CC0072324B /* CertificatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificatesModel.swift; sourceTree = "<group>"; };
 		56AD929A2C5C03F90072324B /* CertificatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificatesViewModel.swift; sourceTree = "<group>"; };
 		56AD92A02C5C0C5F0072324B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -102,6 +110,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56163FE32C5C218100441DA6 /* CMEsModels */ = {
+			isa = PBXGroup;
+			children = (
+				56163FE52C5C21A200441DA6 /* CMEsEntity.swift */,
+			);
+			path = CMEsModels;
+			sourceTree = "<group>";
+		};
+		56163FE42C5C218B00441DA6 /* CertificatesModel */ = {
+			isa = PBXGroup;
+			children = (
+				56163FE72C5C21B600441DA6 /* CertificatesEntity.swift */,
+			);
+			path = CertificatesModel;
+			sourceTree = "<group>";
+		};
+		56163FEB2C5C227E00441DA6 /* CMesUseCases */ = {
+			isa = PBXGroup;
+			children = (
+				56163FE92C5C227300441DA6 /* CMEsUseCases.swift */,
+			);
+			path = CMesUseCases;
+			sourceTree = "<group>";
+		};
+		56163FEC2C5C228900441DA6 /* CertificatesUseCases */ = {
+			isa = PBXGroup;
+			children = (
+				56163FED2C5C229900441DA6 /* CertificatesUseCases.swift */,
+			);
+			path = CertificatesUseCases;
+			sourceTree = "<group>";
+		};
 		562CB4312C5A14E6000BF453 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,7 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				5620CE752C5AC41900170E76 /* CMEApiClient.swift */,
-				56AD92952C5BF9420072324B /* CMEApiClientProtocol.swift */,
+				56AD92952C5BF9420072324B /* CMEsProtocol.swift */,
 			);
 			path = RemoteDataSource;
 			sourceTree = "<group>";
@@ -345,6 +385,8 @@
 		562CB4662C5A55F5000BF453 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				56163FE42C5C218B00441DA6 /* CertificatesModel */,
+				56163FE32C5C218100441DA6 /* CMEsModels */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -352,6 +394,8 @@
 		562CB4672C5A55FA000BF453 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				56163FEC2C5C228900441DA6 /* CertificatesUseCases */,
+				56163FEB2C5C227E00441DA6 /* CMesUseCases */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -618,6 +662,7 @@
 				56E0CB302C5962A9007A80B0 /* PopularCoursesView.swift in Sources */,
 				56E0CB232C595A7F007A80B0 /* CertificateCardView.swift in Sources */,
 				562CB44E2C5A1B13000BF453 /* NetworkError.swift in Sources */,
+				56163FEA2C5C227300441DA6 /* CMEsUseCases.swift in Sources */,
 				562CB4562C5A1C72000BF453 /* APIClient.swift in Sources */,
 				563965272C58FBC000354ACC /* ContentView.swift in Sources */,
 				56AD92A12C5C0C5F0072324B /* SearchBar.swift in Sources */,
@@ -629,21 +674,24 @@
 				56E0CB292C595BE1007A80B0 /* CertificatesSection.swift in Sources */,
 				56E0CB152C593CE2007A80B0 /* AllCoursesSection.swift in Sources */,
 				562CB4612C5A24F4000BF453 /* CMEViewModel.swift in Sources */,
+				56163FEE2C5C229900441DA6 /* CertificatesUseCases.swift in Sources */,
 				56E0CB0A2C592990007A80B0 /* SavedCourseCardView.swift in Sources */,
 				562CB4532C5A1BFB000BF453 /* CMEAPIRoute.swift in Sources */,
 				56AD929B2C5C03F90072324B /* CertificatesViewModel.swift in Sources */,
-				56AD92962C5BF9420072324B /* CMEApiClientProtocol.swift in Sources */,
+				56AD92962C5BF9420072324B /* CMEsProtocol.swift in Sources */,
 				56E0CB0F2C593A2C007A80B0 /* PopularCoursesSection.swift in Sources */,
 				56E0CB212C595033007A80B0 /* FilterSheet.swift in Sources */,
 				56E0CB192C59421C007A80B0 /* ContinueLearningCardView.swift in Sources */,
 				56E0CB1B2C5944FD007A80B0 /* ProgressLine.swift in Sources */,
 				56E0CB1E2C594A2B007A80B0 /* ContinueLearningSection.swift in Sources */,
 				56AD92992C5C01CC0072324B /* CertificatesModel.swift in Sources */,
+				56163FE62C5C21A200441DA6 /* CMEsEntity.swift in Sources */,
 				56E0CB082C592479007A80B0 /* AllCourseCardView.swift in Sources */,
 				5620CE782C5AC6F600170E76 /* APIClientTypeProtocol.swift in Sources */,
 				56AD92942C5BF5030072324B /* Constants.swift in Sources */,
 				562CB45F2C5A24B4000BF453 /* CMEsRepositoryProtocol.swift in Sources */,
 				562CB4632C5A4390000BF453 /* CMEModel.swift in Sources */,
+				56163FE82C5C21B600441DA6 /* CertificatesEntity.swift in Sources */,
 				56E0CB0C2C592C74007A80B0 /* BackgroundView.swift in Sources */,
 				563965352C58FDBD00354ACC /* MainView.swift in Sources */,
 				56E0CB2D2C59608E007A80B0 /* CustomBackButton.swift in Sources */,

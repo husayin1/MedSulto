@@ -22,7 +22,7 @@ struct CertificatesSection: View {
                             .foregroundColor(.red)
                     } else {
                         Spacer()
-                        ProgressView()
+                        ProgressView().foregroundColor(.blue)
                         Spacer()
                     }
                     

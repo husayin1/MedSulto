@@ -7,16 +7,15 @@
 
 import Foundation
 import Alamofire
-import Combine
 
 class APIClient: APIClientTypeProtocol {
     //maybe make singleton
-    func performRequest<T: Decodable>(route: CMEAPIRoute) -> AnyPublisher<T, NetworkError> {
+    func performRequest<T: Decodable>(route: CMEAPIRoute) async throws -> Result<T, NetworkError> {
         let urlRequest: URLRequest
         do {
             urlRequest = try route.asURLRequest()
         } catch {
-            return Fail(error: .other(error.localizedDescription)).eraseToAnyPublisher()
+            return .failure(NetworkError.other(error.localizedDescription))
         }
         
         // Log request details
@@ -26,22 +25,19 @@ class APIClient: APIClientTypeProtocol {
             print(requestBodyString)
         }
         print("URL: \(urlRequest.url?.absoluteString ?? "Invalid URL")")
-        
-        return AF.request(urlRequest)
+        // Perform the network request
+        let response = await AF.request(urlRequest)
             .validate()
-            .publishDecodable(type: T.self)
-            .mapError { error in
-                return NetworkError.serverError(error.localizedDescription)
-            }
-            .flatMap { response in
-                switch response.result {
-                case .success(let model):
-                    return Just(model).setFailureType(to: NetworkError.self).eraseToAnyPublisher()
-                case .failure(let error):
-                    return Fail(error: .serverError(error.localizedDescription)).eraseToAnyPublisher()
-                }
-            }
-            .eraseToAnyPublisher()
+            .serializingDecodable(T.self)
+            .response
+        
+        switch response.result {
+        case .success(let model):
+            return .success(model)
+        case .failure(let error):
+            return .failure(NetworkError.serverError(error.localizedDescription))
+        }
     }
+    
     
 }

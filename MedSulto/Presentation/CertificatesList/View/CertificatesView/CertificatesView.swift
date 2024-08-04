@@ -40,7 +40,10 @@ struct CertificatesView: View {
         }
         .navigationBarItems(leading: CustomBackButton())
         .onAppear{
-            viewModel.getAllUserCertificates()
+            Task{
+                await viewModel.getAllUserCertificates()
+
+            }
         }
     }
 }

@@ -9,6 +9,6 @@ import Foundation
 import Combine
 
 protocol APIClientTypeProtocol {
-    func performRequest<T: Decodable>(route: CMEAPIRoute) -> AnyPublisher<T, NetworkError>
+    func performRequest<T: Decodable>(route: CMEAPIRoute)  async throws -> Result<T, NetworkError>
 }
 

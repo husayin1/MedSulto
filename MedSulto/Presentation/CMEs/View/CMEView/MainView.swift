@@ -31,7 +31,7 @@ struct MainView: View {
                                             Text("Error: \(error.localizedDescription)").foregroundColor(.red)
                                         } else {
                                             Spacer()
-                                            ProgressView()
+                                            ProgressView().foregroundColor(.blue)
                                             Spacer()
                                         }
                                     }
@@ -43,7 +43,9 @@ struct MainView: View {
                 }
                 
             }.onAppear{
-                viewModel.getAllCourses()
+                Task{
+                    await viewModel.getAllCourses()
+                }
             }
         }
         

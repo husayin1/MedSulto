@@ -20,9 +20,13 @@ struct SearchBar: View {
                     .onSubmit {
                         print("search for \(inputSearchText)")
                         if inputSearchText.isEmpty {
-                            viewModel.getAllCourses()
+                            Task{
+                                await viewModel.getAllCourses()
+                            }
                         } else {
-                            viewModel.searchForCourses(inputText: inputSearchText)
+                            Task{
+                                await viewModel.searchForCourses(inputText: inputSearchText)
+                            }
                         }
                     }
                 

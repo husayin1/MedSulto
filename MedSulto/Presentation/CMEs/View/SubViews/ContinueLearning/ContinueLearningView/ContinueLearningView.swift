@@ -41,7 +41,7 @@ struct ContinueLearningView: View {
                                                     .foregroundColor(.red)
                                             } else {
                                                 Spacer()
-                                                ProgressView()
+                                                ProgressView().foregroundColor(.blue)
                                                 Spacer()
                                             }
                                         }
