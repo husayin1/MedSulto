@@ -34,12 +34,10 @@ struct PopularCoursesView: View {
                                                 PopularCourseCardView(course: course)
                                                 }.padding(.all,4)
                                             } else if let error = viewModel.error {
-                                                Text("Error \(error.localizedDescription)")
-                                                    .foregroundColor(.red)
+                                                ErrorText(errorText: error.localizedDescription)
+
                                             } else {
-                                                Spacer()
-                                                ProgressView().foregroundColor(.blue)
-                                                Spacer()
+                                                LoadingView()
                                             }
                                          
                                         }

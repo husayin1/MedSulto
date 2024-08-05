@@ -10,7 +10,7 @@ import Alamofire
 
 class APIClient: APIClientTypeProtocol {
     //maybe make singleton
-    func performRequest<T: Decodable>(route: CMEAPIRoute) async throws -> Result<T, NetworkError> {
+    func performRequest<T: Decodable>(route: CMEAPIRoute) async  -> Result<T, NetworkError> {
         let urlRequest: URLRequest
         do {
             urlRequest = try route.asURLRequest()

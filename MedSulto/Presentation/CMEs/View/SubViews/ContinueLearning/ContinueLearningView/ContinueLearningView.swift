@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContinueLearningView: View {
     @ObservedObject var viewModel: CMEViewModel
-
+    
     var body: some View {
         BackgroundView{ geometry in
             VStack(alignment: .leading){
@@ -37,12 +37,11 @@ struct ContinueLearningView: View {
                                                     ContinueLearningCardView(course: course)
                                                 }
                                             } else if let error = viewModel.error {
-                                                Text("Error: \(error.localizedDescription)")
-                                                    .foregroundColor(.red)
+                                                ErrorText(errorText: error.localizedDescription)
+
                                             } else {
-                                                Spacer()
-                                                ProgressView().foregroundColor(.blue)
-                                                Spacer()
+                                                
+                                                LoadingView()
                                             }
                                         }
                                     }

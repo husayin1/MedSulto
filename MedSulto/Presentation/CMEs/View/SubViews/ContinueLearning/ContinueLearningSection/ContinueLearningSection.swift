@@ -37,12 +37,9 @@ struct ContinueLearningSection: View {
                             ContinueLearningCardView(course: course)
                         }
                     } else if let error = viewModel.error {
-                        Text("error in \(error.localizedDescription)")
-                            .foregroundColor(.red)
+                        ErrorText(errorText: error.localizedDescription)
                     } else {
-                        Spacer()
-                        ProgressView().foregroundColor(.blue)
-                        Spacer()
+                        LoadingView()
                     }
                     
                 }

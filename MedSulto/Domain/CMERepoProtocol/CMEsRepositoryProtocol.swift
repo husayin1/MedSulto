@@ -8,8 +8,8 @@
 import Foundation
 import Combine
 protocol CMEsRepositoryProtocol {
-    func getAllCourses() async throws -> Result<CMELandingResponse, NetworkError>
-    func getSearchResult(name: String) async throws -> Result<CMELandingResponse, NetworkError>
-    func getAllUserCertificates() async throws -> Result<CertificateResponse, NetworkError>
+    func getAllCourses() async -> Result<CMELandingResponse, NetworkError>
+    func getSearchResult(name: String) async -> Result<CMELandingResponse, NetworkError>
+    func getAllUserCertificates() async -> Result<CertificateResponse, NetworkError>
 }
 

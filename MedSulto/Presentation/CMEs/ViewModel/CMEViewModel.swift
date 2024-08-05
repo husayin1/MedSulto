@@ -10,12 +10,12 @@ import Combine
 
 class CMEViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable>
-    @Published var popularCourses: [Course]?
-    @Published var continueCourses: [Course]?
-    @Published var savedCourses: [Course]?
-    @Published var allCourses: [Course]?
-    @Published var error: NetworkError?
-    @Published var courses: CMELandingResponse?
+    @Published private(set) var popularCourses: [Course]?
+    @Published private(set) var continueCourses: [Course]?
+    @Published private(set) var savedCourses: [Course]?
+    @Published private(set) var allCourses: [Course]?
+    @Published private(set) var error: NetworkError?
+    @Published private(set) var courses: CMELandingResponse?
     private let repository: CMEsRepositoryProtocol
     
     init(){
@@ -26,8 +26,7 @@ class CMEViewModel: ObservableObject {
     
     
     func getAllCourses() async {
-        do {
-            let result = try await repository.getAllCourses().publisher
+            let result = await repository.getAllCourses().publisher
             result.receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: {[weak self] completion in
                     switch completion {
@@ -36,7 +35,6 @@ class CMEViewModel: ObservableObject {
                         break
                     case .failure(let err):
                         self?.error = err
-                        print(self?.error)
                     }
                 }, receiveValue: {[weak self] response in
                     self?.courses = response
@@ -63,9 +61,6 @@ class CMEViewModel: ObservableObject {
              }
              
              }*/
-        } catch {
-            print("Error fetching all courses")
-        }
         /*
          repository.getAllCourses()
          .sink(receiveCompletion: {[weak self] completion in
@@ -88,8 +83,7 @@ class CMEViewModel: ObservableObject {
     }
     
     func searchForCourses(inputText: String) async {
-        do {
-            let result = try await repository.getSearchResult(name: inputText).publisher
+            let result = await repository.getSearchResult(name: inputText).publisher
             result
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] completion in
@@ -124,9 +118,6 @@ class CMEViewModel: ObservableObject {
              }
              
              }*/
-        } catch {
-            print("Error on searching for courses")
-        }
         /*
          repository.getSearchResult(name: inputText)
          .sink { [weak self] completion in

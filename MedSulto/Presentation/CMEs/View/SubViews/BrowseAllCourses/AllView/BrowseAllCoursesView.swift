@@ -35,12 +35,9 @@ struct BrowseAllCoursesView: View {
                                                     AllCourseCardView(course: course)
                                                 }
                                             } else if let error = viewModel.error {
-                                                Text("Error: \(error.localizedDescription)")
-                                                    .foregroundColor(.red)
+                                                ErrorText(errorText: error.localizedDescription)
                                             } else {
-                                                Spacer()
-                                                ProgressView().foregroundColor(.blue)
-                                                Spacer()
+                                                LoadingView()
                                             }
                                         }.padding(.top)
                                     }

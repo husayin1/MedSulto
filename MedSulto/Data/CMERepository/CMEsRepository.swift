@@ -16,16 +16,16 @@ class CMEsRepository: CMEsRepositoryProtocol {
     }
     
     //this is new edit
-    func getAllCourses() async throws -> Result<CMELandingResponse, NetworkError> {
-        return try await cmeApiClient.fetchAllCourses()
+    func getAllCourses() async -> Result<CMELandingResponse, NetworkError> {
+        return await cmeApiClient.fetchAllCourses()
     }
     
-    func getSearchResult(name: String) async throws -> Result<CMELandingResponse, NetworkError> {
-        return try await cmeApiClient.searchForCoursesBy(name: name)
+    func getSearchResult(name: String) async -> Result<CMELandingResponse, NetworkError> {
+        return await cmeApiClient.searchForCoursesBy(name: name)
     }
     
-    func getAllUserCertificates() async throws -> Result<CertificateResponse, NetworkError> {
-        return try await cmeApiClient.fetchAllUserCertificates()
+    func getAllUserCertificates() async -> Result<CertificateResponse, NetworkError> {
+        return await cmeApiClient.fetchAllUserCertificates()
     }
 }
 

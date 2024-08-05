@@ -10,8 +10,8 @@ import Combine
 
 class CertificatesViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable>
-    @Published var userCertificates: [CertificateItem]?
-    @Published var error: NetworkError?
+    @Published private(set) var userCertificates: [CertificateItem]?
+    @Published private(set) var error: NetworkError?
     private let repository: CMEsRepositoryProtocol
     
     init(){
@@ -21,8 +21,7 @@ class CertificatesViewModel: ObservableObject {
     
     
     func getAllUserCertificates() async {
-        do{
-            let result = try await repository.getAllUserCertificates().publisher
+            let result = await repository.getAllUserCertificates().publisher
             result.receive(on: DispatchQueue.main)
                 .sink(receiveCompletion: { completion in
                     switch completion {
@@ -50,9 +49,7 @@ class CertificatesViewModel: ObservableObject {
              self?.error = err
              }
              }*/
-        } catch {
-            print("Error fetching user certificates")
-        }
+        
         /*
          repository.getAllUserCertificates()
          .sink(receiveCompletion: { completion in

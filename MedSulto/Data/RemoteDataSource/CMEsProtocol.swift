@@ -8,10 +8,7 @@
 import Foundation
 
 protocol CMEsAPIProtocol: APIClientTypeProtocol {
-//    func fetchAllCourses() -> AnyPublisher<CMELandingResponse, NetworkError>
-//    func searchForCoursesBy(name: String) -> AnyPublisher<CMELandingResponse, NetworkError>
-//    func fetchAllUserCertificates() -> AnyPublisher<CertificateResponse, NetworkError>
-    func fetchAllCourses() async throws -> Result<CMELandingResponse, NetworkError>
-    func searchForCoursesBy(name: String) async throws -> Result<CMELandingResponse, NetworkError>
-    func fetchAllUserCertificates() async throws -> Result<CertificateResponse, NetworkError>
+    func fetchAllCourses() async -> Result<CMELandingResponse, NetworkError>
+    func searchForCoursesBy(name: String) async -> Result<CMELandingResponse, NetworkError>
+    func fetchAllUserCertificates() async -> Result<CertificateResponse, NetworkError>
 }

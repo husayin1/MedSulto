@@ -9,14 +9,14 @@ import Foundation
 
 class CMEApiClient: APIClient,CMEsAPIProtocol{
     
-    func fetchAllCourses() async throws -> Result<CMELandingResponse, NetworkError> {
-        return try await performRequest(route: CMEAPIRoute.getCMELandingPage)
+    func fetchAllCourses() async -> Result<CMELandingResponse, NetworkError> {
+        return await performRequest(route: CMEAPIRoute.getCMELandingPage)
     }
     
-    func searchForCoursesBy(name: String) async throws -> Result<CMELandingResponse, NetworkError> {
-        return try await performRequest(route: CMEAPIRoute.searchForCoursesWith(name: name))
+    func searchForCoursesBy(name: String) async -> Result<CMELandingResponse, NetworkError> {
+        return await performRequest(route: CMEAPIRoute.searchForCoursesWith(name: name))
     }
-    func fetchAllUserCertificates() async throws -> Result<CertificateResponse, NetworkError> {
-        return try await performRequest(route: CMEAPIRoute.getCertificatesList)
+    func fetchAllUserCertificates() async -> Result<CertificateResponse, NetworkError> {
+        return await performRequest(route: CMEAPIRoute.getCertificatesList)
     }
 }

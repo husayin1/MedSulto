@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct SearchBar: View {
-    @ObservedObject var viewModel:CMEViewModel
+    @ObservedObject private var viewModel:CMEViewModel
     @State private var inputSearchText:String = ""
     @State private var isPresented: Bool = false
     @State private var settingsDetents = PresentationDetent.medium
-    
+    init(viewModel: CMEViewModel) {
+        self.viewModel = viewModel
+    }
     var body: some View {
         HStack{
             HStack(spacing: 15){
