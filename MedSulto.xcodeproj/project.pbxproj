@@ -26,6 +26,7 @@
 		5629F62D2C623009003330B9 /* FilterSheetHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5629F62C2C623009003330B9 /* FilterSheetHeader.swift */; };
 		5629F62F2C62321E003330B9 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5629F62E2C62321E003330B9 /* ViewState.swift */; };
 		5629F6332C6236C8003330B9 /* HeaderText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5629F6322C6236C8003330B9 /* HeaderText.swift */; };
+		5629F6352C6238F2003330B9 /* CertificateViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5629F6342C6238F2003330B9 /* CertificateViewState.swift */; };
 		562CB42E2C5A1209000BF453 /* ContinueLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB42D2C5A1209000BF453 /* ContinueLearningView.swift */; };
 		562CB4302C5A1293000BF453 /* BrowseAllCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB42F2C5A1293000BF453 /* BrowseAllCoursesView.swift */; };
 		562CB44E2C5A1B13000BF453 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562CB44D2C5A1B13000BF453 /* NetworkError.swift */; };
@@ -85,6 +86,7 @@
 		5629F62C2C623009003330B9 /* FilterSheetHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSheetHeader.swift; sourceTree = "<group>"; };
 		5629F62E2C62321E003330B9 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		5629F6322C6236C8003330B9 /* HeaderText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderText.swift; sourceTree = "<group>"; };
+		5629F6342C6238F2003330B9 /* CertificateViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateViewState.swift; sourceTree = "<group>"; };
 		562CB42D2C5A1209000BF453 /* ContinueLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueLearningView.swift; sourceTree = "<group>"; };
 		562CB42F2C5A1293000BF453 /* BrowseAllCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseAllCoursesView.swift; sourceTree = "<group>"; };
 		562CB44D2C5A1B13000BF453 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				56AD929A2C5C03F90072324B /* CertificatesViewModel.swift */,
+				5629F6342C6238F2003330B9 /* CertificateViewState.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -754,6 +757,7 @@
 				56163FE82C5C21B600441DA6 /* CertificatesEntity.swift in Sources */,
 				56E0CB0C2C592C74007A80B0 /* BackgroundView.swift in Sources */,
 				563965352C58FDBD00354ACC /* MainView.swift in Sources */,
+				5629F6352C6238F2003330B9 /* CertificateViewState.swift in Sources */,
 				56E0CB2D2C59608E007A80B0 /* CustomBackButton.swift in Sources */,
 				563965252C58FBC000354ACC /* MedSultoApp.swift in Sources */,
 				562CB42E2C5A1209000BF453 /* ContinueLearningView.swift in Sources */,

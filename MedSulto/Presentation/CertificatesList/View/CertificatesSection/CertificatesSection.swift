@@ -13,14 +13,15 @@ struct CertificatesSection: View {
         VStack{
             ScrollView(.vertical,showsIndicators: false){
                 VStack(spacing: 20){
-                    if let certificates = viewModel.userCertificates {
-                        ForEach(certificates, id: \.id) { certificate in
+                    switch viewModel.state {
+                    case .loading:
+                        LoadingView()
+                    case .error(let message):
+                        ErrorText(errorText: message)
+                    case .loaded(let certificates):
+                        ForEach(certificates.items, id: \.id) { certificate in
                             CertificateCardView(certificate: certificate)
                         }.padding(.all,4)
-                    } else if let error = viewModel.error {
-                        ErrorText(errorText: error.localizedDescription)
-                    } else {
-                        LoadingView()
                     }
                     
                 }

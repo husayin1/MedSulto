@@ -17,11 +17,9 @@ class CMEViewModel: ObservableObject {
     init(){
         self.repository = CMEsRepository()
         self.cancellables = Set<AnyCancellable>()
-        
     }
     
     func getAllCourses() async {
-        state = .loading
         let result = await repository.getAllCourses().publisher
         result.receive(on: DispatchQueue.main)
             .sink(receiveCompletion: {[weak self] completion in
