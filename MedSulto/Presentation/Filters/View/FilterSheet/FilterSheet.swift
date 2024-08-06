@@ -14,59 +14,12 @@ struct FilterSheet: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Text("Filters").font(.headline)
-                Spacer()
-                Button {
-                    print("Reset Filters")
-                } label: {
-                    Text("Reset")
-                        .foregroundColor(.black)
-                }
-            }
-            .padding()
-            
+            FilterSheetHeader()
             ScrollView {
                 VStack {
-                    HStack {
-                        Text("Specialities")
-                        Spacer()
-                        Button {
-                            print("view all specialities")
-                        } label: {
-                            Text("View all")
-                                .foregroundColor(.gray)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.gray)
-                        }
-                    }.padding()
-                    
-                    HStack {
-                        Text("Sub Speciality")
-                        Spacer()
-                        Button {
-                            print("view all sub specialities")
-                        } label: {
-                            Text("View all")
-                                .foregroundColor(.gray)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.gray)
-                        }
-                    }.padding()
-                    
-                    HStack {
-                        Text("Course Type")
-                        Spacer()
-                        Button {
-                            print("view all course types")
-                        } label: {
-                            Text("View all")
-                                .foregroundColor(.gray)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.gray)
-                        }
-                    }.padding()
-                    
+                    FilterCell(headerText: "Specialities")
+                    FilterCell(headerText: "Sub Speciality")
+                    FilterCell(headerText: "Course Type")
                     HStack {
                         VStack(alignment: .leading) {
                             HStack{
@@ -84,32 +37,8 @@ struct FilterSheet: View {
                         }
                     }.padding()
                     
-                    HStack {
-                        Text("Accreditation type")
-                        Spacer()
-                        Button {
-                            print("view all accreditation types")
-                        } label: {
-                            Text("View all")
-                                .foregroundColor(.gray)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.gray)
-                        }
-                    }.padding()
-                    
-                    HStack {
-                        Text("Credits")
-                        Spacer()
-                        Button {
-                            print("view all credits")
-                        } label: {
-                            Text("View all")
-                                .foregroundColor(.gray)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.gray)
-                        }
-                    }.padding()
-                    
+                    FilterCell(headerText: "Accreditation type")
+                    FilterCell(headerText: "Credits")
                     HStack {
                         VStack(alignment: .leading) {
                             HStack{
@@ -126,6 +55,7 @@ struct FilterSheet: View {
                                 .foregroundColor(.gray)
                         }
                     }.padding()
+                    
                     Button {
                         print("Apply Filters")
                         //for dismissing the sheet
@@ -140,8 +70,6 @@ struct FilterSheet: View {
                             .background(Color("Primary"))
                             .cornerRadius(50)
                     }
-                    
-                    
                 }
             }
         }

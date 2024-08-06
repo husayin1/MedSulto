@@ -21,24 +21,21 @@ struct PopularCoursesView: View {
                         .foregroundColor(.white)
                         .overlay(
                             VStack{
-                                HStack{
-                                    Text("Popular Courses")
-                                        .fontWeight(.semibold)
-                                    Spacer()
-                                }
+                                HeaderText(headerTxt: "Popular Courses")
                                 VStack(alignment: .leading){
                                     ScrollView(.vertical,showsIndicators: false){
                                         VStack(spacing: 20){
-                                            if let courses = viewModel.popularCourses {
-                                                ForEach(courses, id: \.id) { course in
+                                            switch viewModel.state {
+                                            case .loading:
+                                                LoadingView()
+                                            case .error(let message):
+                                                ErrorText(errorText: message)
+                                            case .loaded(let courses):
+                                                ForEach(courses.popularCourses, id: \.id) { course in
                                                 PopularCourseCardView(course: course)
                                                 }.padding(.all,4)
-                                            } else if let error = viewModel.error {
-                                                ErrorText(errorText: error.localizedDescription)
-
-                                            } else {
-                                                LoadingView()
                                             }
+                                            
                                          
                                         }
                                     }

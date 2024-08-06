@@ -21,27 +21,20 @@ struct ContinueLearningView: View {
                         .foregroundColor(.white)
                         .overlay(
                             VStack{
-                                HStack{
-                                    Text("Continue Learning Courses")
-                                        .fontWeight(.semibold)
-                                    Spacer()
-                                    
-                                }
-                                .padding(.all,10)
+                                HeaderText(headerTxt: "Continue Learning Courses")
+
                                 VStack(alignment: .leading){
                                     ScrollView(.vertical,showsIndicators: false){
                                         VStack(spacing: 20){
-                                            if let courses = viewModel.continueCourses {
-                                                
-                                                ForEach(courses, id: \.id) { course in
+                                            switch viewModel.state {
+                                            case .error(let message):
+                                                ErrorText(errorText: message)
+                                            case .loading:
+                                                LoadingView()
+                                            case .loaded(let courses):
+                                                ForEach(courses.continueCourses, id: \.id) { course in
                                                     ContinueLearningCardView(course: course)
                                                 }
-                                            } else if let error = viewModel.error {
-                                                ErrorText(errorText: error.localizedDescription)
-
-                                            } else {
-                                                
-                                                LoadingView()
                                             }
                                         }
                                     }

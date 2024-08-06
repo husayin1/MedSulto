@@ -12,53 +12,23 @@ struct ContinueLearningCardView: View {
     var body: some View {
         VStack{
             VStack(alignment: .leading,spacing: 5.0){
-                VStack(alignment: .leading, spacing: 5.0){
-                    Text(course.formattedTimeStamp(date: course.date) ?? "12 Jan, 2022")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                    
-                    Text(course.title)
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .lineLimit(2)
-                    
-                    Text(course.specialties.first ?? "-")
-                        .font(.subheadline)
-                        .foregroundColor(Color("darkGray"))
-                    
-                }
-                .padding(.all, 10)
-                
+                VStackCourseDetails(courseDate: course.formattedTimeStamp(date: course.date) ?? "12 Jan, 2022", courseTitle: course.title, courseSpecialtie: course.specialties.first ?? "-")
+                    .padding(.all, 10)
                 HStack(alignment: .lastTextBaseline){
                     VStack{
+                        TxtSpacerTxt(courseCurrentModuleName: course.currentModuleName ?? "Mod1", courseCurrentModule: "\(course.currentModule)/\(course.totalModules)")
                         HStack{
-                            Text(course.currentModuleName ?? "Mod1")
-                                .font(.headline)
-                            Spacer()
-                            Text("\(course.currentModule)/\(course.totalModules)")
-                                .font(.caption)
-                        }
-                        ScrollView(.horizontal){
-                            HStack{
-                                ForEach(0..<course.totalModules, id: \.self) { index in
-                                    ProgressLine(percent: index < course.currentModule ? 100 : 0)
-                                }
+                            ForEach(0..<course.totalModules, id: \.self) { index in
+                                ProgressLine(percent: index < course.currentModule ? 100 : 0)
                             }
                         }
                     }
-                    
                 }
                 .padding()
                 .background(Color("Natural").opacity(0.4))
                 .cornerRadius(15.0)
                 HStack{
-                    VStack(alignment: .leading){
-                        Text("Estimated Time")
-                            .font(.system(size: 10.0))
-                        Text("\(course.formattedEstimatedTime(from: course.estimatedTime))")
-                            .font(.system(size: 10.0))
-                            .bold()
-                    }
+                    SubCell(headerText: "Estimated Time", bodyText:"\(course.formattedEstimatedTime(from: course.estimatedTime))")
                     Spacer()
                     Button {
                         print("Continue Learning")

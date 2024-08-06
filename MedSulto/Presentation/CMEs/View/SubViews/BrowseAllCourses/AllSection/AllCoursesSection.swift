@@ -29,14 +29,15 @@ struct AllCoursesSection: View {
             }
             ScrollView(.horizontal,showsIndicators: false){
                 HStack(spacing: 20){
-                    if let courses = viewModel.allCourses {
-                        ForEach(courses.prefix(3), id: \.id) { course in
+                    switch viewModel.state {
+                    case .loading:
+                        LoadingView()
+                    case .error(let message):
+                        ErrorText(errorText: message)
+                    case .loaded(let courses):
+                        ForEach(courses.All.prefix(3), id: \.id) { course in
                             AllCourseCardView(course: course)
                         }
-                    } else if let error = viewModel.error {
-                        ErrorText(errorText: error.localizedDescription)
-                    } else {
-                        LoadingView()
                     }
                     
                 }

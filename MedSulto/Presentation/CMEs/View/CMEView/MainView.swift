@@ -22,16 +22,16 @@ struct MainView: View {
                             .overlay(
                                 ScrollView(.vertical, showsIndicators: false){
                                     VStack(alignment: .leading){
-                                        if let _ = viewModel.courses {
+                                        switch viewModel.state {
+                                        case .error(let message):
+                                            ErrorText(errorText: message)
+                                        case .loading:
+                                            LoadingView()
+                                        case .loaded:
                                             PopularCoursesSection(viewModel: viewModel)
                                             ContinueLearningSection(viewModel: viewModel)
                                             SavedCoursesSection(viewModel: viewModel)
                                             AllCoursesSection(viewModel: viewModel)
-                                        } else if let error = viewModel.error {
-                                            ErrorText(errorText: error.localizedDescription)
-
-                                        } else {
-                                            LoadingView()
                                         }
                                     }
                                 }

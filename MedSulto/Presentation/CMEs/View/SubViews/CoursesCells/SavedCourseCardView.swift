@@ -11,32 +11,7 @@ struct SavedCourseCardView: View {
     var course: Course
     var body: some View {
         VStack{
-            AsyncImage(url: URL(string: course.imageUrl)) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView()
-                        .frame(width: 64, height: 64)
-                case .success(let image):
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: 80)
-                        .clipped()
-                case .failure:
-                    Image("course")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: 80)
-                        .clipped()
-                @unknown default:
-                    Image("course")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: 80)
-                        .clipped()
-                }
-            }
-                
+            ReusableImage(courseImage: course.imageUrl, imageHeight: 80)
             VStack(alignment: .leading, spacing: 5.0){
                 Text(course.title)
                     .font(.subheadline)

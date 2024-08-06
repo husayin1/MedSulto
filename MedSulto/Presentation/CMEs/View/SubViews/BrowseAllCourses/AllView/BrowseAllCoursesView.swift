@@ -20,24 +20,19 @@ struct BrowseAllCoursesView: View {
                         .foregroundColor(.white)
                         .overlay(
                             VStack{
-                                HStack{
-                                    Text("All Courses")
-                                        .fontWeight(.semibold)
-                                    Spacer()
-                                    
-                                }
-                                .padding(.all,10)
+                                HeaderText(headerTxt: "All Courses")
                                 VStack(alignment: .leading){
                                     ScrollView(.vertical,showsIndicators: false){
                                         VStack(spacing: 20){
-                                            if let courses = viewModel.allCourses {
-                                                ForEach(courses, id: \.id) { course in
+                                            switch viewModel.state {
+                                            case .error(let message):
+                                                ErrorText(errorText: message)
+                                            case .loading:
+                                                LoadingView()
+                                            case .loaded(let courses):
+                                                ForEach(courses.All, id: \.id) { course in
                                                     AllCourseCardView(course: course)
                                                 }
-                                            } else if let error = viewModel.error {
-                                                ErrorText(errorText: error.localizedDescription)
-                                            } else {
-                                                LoadingView()
                                             }
                                         }.padding(.top)
                                     }

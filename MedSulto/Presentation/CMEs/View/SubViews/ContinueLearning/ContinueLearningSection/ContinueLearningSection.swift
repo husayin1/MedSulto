@@ -31,15 +31,15 @@ struct ContinueLearningSection: View {
             }
             ScrollView(.horizontal,showsIndicators: false){
                 HStack(spacing: 20){
-                    
-                    if let courses = viewModel.continueCourses {
-                        ForEach(courses, id: \.id) { course in
+                    switch viewModel.state {
+                    case .loading:
+                        LoadingView()
+                    case .error(let message):
+                        ErrorText(errorText: message)
+                    case .loaded(let courses):
+                        ForEach(courses.continueCourses, id: \.id) { course in
                             ContinueLearningCardView(course: course)
                         }
-                    } else if let error = viewModel.error {
-                        ErrorText(errorText: error.localizedDescription)
-                    } else {
-                        LoadingView()
                     }
                     
                 }
