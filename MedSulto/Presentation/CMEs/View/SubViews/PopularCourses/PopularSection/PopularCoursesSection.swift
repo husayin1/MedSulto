@@ -6,22 +6,17 @@
 //
 
 import SwiftUI
-
+import Combine
 struct PopularCoursesSection: View {
     @ObservedObject var viewModel: CMEViewModel
-
     var body: some View {
         VStack{
             VStack(alignment: .leading){
                 HStack{
-                    Text("Popular Courses")
-                        .fontWeight(.semibold)
+                    CourseHeaderText(headerTxt: CoursesType.popular.rawValue)
                     Spacer()
-                    NavigationLink(destination: PopularCoursesView(viewModel: viewModel)) {
-                            Text("View all")
-                                .foregroundColor(.gray)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.gray)
+                    ViewAllButton{
+                        viewModel.router?.coordinator.routeToPopularCourses(viewModel: viewModel)
                     }
                 }
                 .padding(.top,30)
@@ -47,8 +42,3 @@ struct PopularCoursesSection: View {
     }
 }
 
-struct PopularCoursesSection_Previews: PreviewProvider {
-    static var previews: some View {
-        PopularCoursesSection(viewModel: CMEViewModel())
-    }
-}

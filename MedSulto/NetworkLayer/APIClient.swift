@@ -31,6 +31,7 @@ class APIClient: APIClientTypeProtocol {
             .serializingDecodable(T.self)
             .response
         
+//        print(response.result)
         switch response.result {
         case .success(let model):
             return .success(model)

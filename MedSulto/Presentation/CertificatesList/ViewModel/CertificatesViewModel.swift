@@ -9,14 +9,15 @@ import Foundation
 import Combine
 
 class CertificatesViewModel: ObservableObject {
-    private var cancellables: Set<AnyCancellable>
-    @Published private(set) var userCertificates: [CertificateItem]?
-    private let repository: CMEsRepositoryProtocol
-    @Published private(set) var state: CertificateViewState = .loading
+    @Published private(set) var state: CertificateViewState
     
-    init(){
+    private let repository: CMEsRepositoryProtocol
+    private var cancellables: Set<AnyCancellable>
+
+    init(cancellables: Set<AnyCancellable>, state: CertificateViewState){
         self.repository = CMEsRepository()
-        self.cancellables = Set<AnyCancellable>()
+        self.cancellables = cancellables
+        self.state = state
     }
     
     
@@ -33,7 +34,6 @@ class CertificatesViewModel: ObservableObject {
                     print(error)
                 }
             }, receiveValue: {[weak self] response in
-                self?.userCertificates = response.data.items
                 self?.state = .loaded(response.data)
             })
             .store(in: &cancellables)

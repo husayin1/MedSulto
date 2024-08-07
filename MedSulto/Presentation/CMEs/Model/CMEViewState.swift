@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ViewState {
+enum CMEViewState {
     case loading
     case loaded(DataContainer)
     case error(String)

@@ -12,11 +12,15 @@ struct ContinueLearningCardView: View {
     var body: some View {
         VStack{
             VStack(alignment: .leading,spacing: 5.0){
-                VStackCourseDetails(courseDate: course.formattedTimeStamp(date: course.date) ?? "12 Jan, 2022", courseTitle: course.title, courseSpecialtie: course.specialties.first ?? "-")
-                    .padding(.all, 10)
+                CourseDetailsView(
+                    courseDate: course.formattedTimeStamp(date: course.date) ?? "12 Jan, 2022",
+                    courseTitle: course.title,
+                    courseSpecialtie: course.specialties.first ?? "-"
+                )
+                .padding(.all, 10)
                 HStack(alignment: .lastTextBaseline){
                     VStack{
-                        TxtSpacerTxt(courseCurrentModuleName: course.currentModuleName ?? "Mod1", courseCurrentModule: "\(course.currentModule)/\(course.totalModules)")
+                        CourseModulesDetailsView(courseCurrentModuleName: course.currentModuleName ?? "Mod1", courseCurrentModule: "\(course.currentModule)/\(course.totalModules)")
                         HStack{
                             ForEach(0..<course.totalModules, id: \.self) { index in
                                 ProgressLine(percent: index < course.currentModule ? 100 : 0)
@@ -28,7 +32,10 @@ struct ContinueLearningCardView: View {
                 .background(Color("Natural").opacity(0.4))
                 .cornerRadius(15.0)
                 HStack{
-                    SubCell(headerText: "Estimated Time", bodyText:"\(course.formattedEstimatedTime(from: course.estimatedTime))")
+                    CourseSubDetailsView(
+                        headerText: CourseSubDetailType.estimatedTime.rawValue,
+                        bodyText:"\(course.formattedEstimatedTime(from: course.estimatedTime))"
+                    )
                     Spacer()
                     Button {
                         print("Continue Learning")
@@ -45,8 +52,6 @@ struct ContinueLearningCardView: View {
                 }.padding([.top,.bottom], 10)
                     .padding(.horizontal,4)
             }
-            
-            
         }
         .frame(width: 300)
         .background(Color.white)

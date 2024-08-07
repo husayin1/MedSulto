@@ -6,23 +6,19 @@
 //
 
 import SwiftUI
-
+import Combine
 struct AllCoursesSection: View {
     @ObservedObject var viewModel: CMEViewModel
     var body: some View {
         VStack{
             VStack(alignment: .leading){
                 HStack{
-                    Text("Browse All Courses")
-                        .fontWeight(.semibold)
+                    CourseHeaderText(headerTxt: CoursesType.all.rawValue)
                     Spacer()
-                    NavigationLink(destination: BrowseAllCoursesView(viewModel: viewModel)){
-                        Text("View all")
-                            .foregroundColor(.gray)
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.gray)
+                    ViewAllButton {
+                        viewModel.router?.coordinator.routeToAllCourses(viewModel: viewModel)
                     }
-                    
+
                 }
                 .padding(.top,30)
                 .padding(.horizontal,10)
@@ -35,11 +31,10 @@ struct AllCoursesSection: View {
                     case .error(let message):
                         ErrorText(errorText: message)
                     case .loaded(let courses):
-                        ForEach(courses.All.prefix(3), id: \.id) { course in
+                        ForEach(courses.all.prefix(3), id: \.id) { course in
                             AllCourseCardView(course: course)
                         }
                     }
-                    
                 }
                 .padding(.horizontal,10)
                 .padding(.vertical,6)
@@ -48,8 +43,3 @@ struct AllCoursesSection: View {
     }
 }
 
-struct AllCoursesSection_Previews: PreviewProvider {
-    static var previews: some View {
-        AllCoursesSection(viewModel: CMEViewModel())
-    }
-}

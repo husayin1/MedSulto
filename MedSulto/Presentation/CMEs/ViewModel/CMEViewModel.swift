@@ -7,16 +7,22 @@
 
 import Foundation
 import Combine
+import Stinsen
 
 class CMEViewModel: ObservableObject {
-    private var cancellables: Set<AnyCancellable>
-    @Published private(set) var courses: CMELandingResponse?
-    private let repository: CMEsRepositoryProtocol
-    @Published private(set) var state: ViewState = .loading
+    // MARK: - Router
+    @RouterObject var router: NavigationRouter<CMECoordinator>?
+    // MARK: - Publishers
+    @Published private(set) var state: CMEViewState
     
-    init(){
+    // MARK: - Properties
+    private let repository: CMEsRepositoryProtocol
+    private var cancellables: Set<AnyCancellable>
+    
+    init(cancellables: Set<AnyCancellable>, state: CMEViewState){
         self.repository = CMEsRepository()
-        self.cancellables = Set<AnyCancellable>()
+        self.cancellables = cancellables
+        self.state = state
     }
     
     func getAllCourses() async {
@@ -28,10 +34,10 @@ class CMEViewModel: ObservableObject {
                     print("finished")
                     break
                 case .failure(let err):
+                    print(err)
                     self?.state = .error(err.localizedDescription)
                 }
             }, receiveValue: {[weak self] response in
-                self?.courses = response
                 self?.state = .loaded(response.data)
             })
             .store(in: &cancellables)
@@ -49,7 +55,6 @@ class CMEViewModel: ObservableObject {
                     self?.state = .error(err.localizedDescription)
                 }
             } receiveValue: { [weak self] response in
-                self?.courses = response
                 self?.state = .loaded(response.data)
             }
             .store(in: &cancellables)

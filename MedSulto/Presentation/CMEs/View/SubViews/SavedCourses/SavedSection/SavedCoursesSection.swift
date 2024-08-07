@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SavedCoursesSection: View {
     @ObservedObject var viewModel: CMEViewModel
@@ -13,18 +14,11 @@ struct SavedCoursesSection: View {
         VStack{
             VStack(alignment: .leading){
                 HStack{
-                    Text("Saved Courses")
-                        .fontWeight(.semibold)
+                    CourseHeaderText(headerTxt: CoursesType.saved.rawValue)
                     Spacer()
-                    Button {
-                        print("view all saved courses")
-                    } label: {
-                        Text("View all")
-                            .foregroundColor(.gray)
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.gray)
+                    ViewAllButton {
+                        print("View All Saved Courses")
                     }
-                    
                 }
                 .padding(.top,30)
                 .padding(.horizontal,10)
@@ -37,7 +31,7 @@ struct SavedCoursesSection: View {
                     case .error(let message):
                         ErrorText(errorText: message)
                     case .loaded(let courses):
-                        ForEach(courses.savedCourses.prefix(3), id: \.id) { course in
+                        ForEach(courses.SavedCourses.prefix(3), id: \.id) { course in
                             SavedCourseCardView(course: course)
                         }
                     }
@@ -46,11 +40,5 @@ struct SavedCoursesSection: View {
                 .padding(.vertical,6)
             }
         }
-    }
-}
-
-struct SavedCoursesSection_Previews: PreviewProvider {
-    static var previews: some View {
-        SavedCoursesSection(viewModel: CMEViewModel())
     }
 }

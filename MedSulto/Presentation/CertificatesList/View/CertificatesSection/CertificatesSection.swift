@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import Combine
 struct CertificatesSection: View {
     @ObservedObject var viewModel: CertificatesViewModel
     var body: some View {
@@ -23,7 +23,6 @@ struct CertificatesSection: View {
                             CertificateCardView(certificate: certificate)
                         }.padding(.all,4)
                     }
-                    
                 }
                 .padding(.horizontal,10)
                 .padding(.vertical,6)
@@ -34,6 +33,6 @@ struct CertificatesSection: View {
 
 struct CertificatesSection_Previews: PreviewProvider {
     static var previews: some View {
-        CertificatesSection(viewModel: CertificatesViewModel())
+        CertificatesSection(viewModel: CertificatesViewModel(cancellables: Set<AnyCancellable>(), state: .loading))
     }
 }

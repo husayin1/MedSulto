@@ -1,5 +1,5 @@
 //
-//  TxtSpacerTxt.swift
+//  ModulesDetails.swift
 //  MedSulto
 //
 //  Created by husayn on 06/08/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ModulesDetails: View {
+struct CourseModulesDetailsView: View {
     var courseCurrentModuleName: String
     var courseCurrentModule: String
     var body: some View {
@@ -21,8 +21,8 @@ struct ModulesDetails: View {
     }
 }
 
-struct TxtSpacerTxt_Previews: PreviewProvider {
+struct ModulesDetails_Previews: PreviewProvider {
     static var previews: some View {
-        ModulesDetails(courseCurrentModuleName: "4", courseCurrentModule: "7")
+        CourseModulesDetailsView(courseCurrentModuleName: "4", courseCurrentModule: "7")
     }
 }

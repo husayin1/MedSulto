@@ -9,19 +9,18 @@ import SwiftUI
 
 struct FilterSheetHeader: View {
     var body: some View {
-        
-            HStack {
-                Text("Filters").font(.headline)
-                Spacer()
-                Button {
-                    print("Reset Filters")
-                } label: {
-                    Text("Reset")
-                        .foregroundColor(.black)
-                }
+        HStack {
+            Text("Filters").font(.headline)
+            Spacer()
+            Button {
+                print("Reset Filters")
+            } label: {
+                Text("Reset")
+                    .foregroundColor(.black)
             }
-            .padding()
-            
+        }
+        .padding()
+        
     }
 }
 

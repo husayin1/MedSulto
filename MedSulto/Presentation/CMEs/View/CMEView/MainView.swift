@@ -6,48 +6,32 @@
 //
 
 import SwiftUI
+import Combine
 
 struct MainView: View {
-    @StateObject private var viewModel = CMEViewModel()
+    @StateObject private var viewModel = CMEViewModel(cancellables: Set<AnyCancellable>(), state: .loading)
     var body: some View {
-        NavigationView {
-            BackgroundView{ geometry in
-                VStack{
-                    Spacer()
-                    SearchBar(viewModel: viewModel)
-                    VStack{
-                        RoundedRectangle(cornerRadius: 30.0)
-                            .frame(height: geometry.size.height * 0.80)
-                            .foregroundColor(.white)
-                            .overlay(
-                                ScrollView(.vertical, showsIndicators: false){
-                                    VStack(alignment: .leading){
-                                        switch viewModel.state {
-                                        case .error(let message):
-                                            ErrorText(errorText: message)
-                                        case .loading:
-                                            LoadingView()
-                                        case .loaded:
-                                            PopularCoursesSection(viewModel: viewModel)
-                                            ContinueLearningSection(viewModel: viewModel)
-                                            SavedCoursesSection(viewModel: viewModel)
-                                            AllCoursesSection(viewModel: viewModel)
-                                        }
-                                    }
-                                }
-                                    .padding(10)
-                            )
+        BackgroundContent(viewModel: viewModel){
+            ScrollView(.vertical, showsIndicators: false){
+                VStack(alignment: .leading){
+                    switch viewModel.state {
+                    case .error(let message):
+                        ErrorText(errorText: message)
+                    case .loading:
+                        LoadingView()
+                    case .loaded:
+                        PopularCoursesSection(viewModel: viewModel)
+                        ContinueLearningSection(viewModel: viewModel)
+                        SavedCoursesSection(viewModel: viewModel)
+                        AllCoursesSection(viewModel: viewModel)
                     }
-                    
                 }
-                
-            }.onAppear{
-                Task{
-                    await viewModel.getAllCourses()
-                }
+            }.padding(10)
+        }.onAppear{
+            Task{
+                await viewModel.getAllCourses()
             }
         }
-        
     }
 }
 

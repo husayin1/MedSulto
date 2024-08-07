@@ -13,14 +13,7 @@ struct FilterCell: View {
         HStack {
             Text(headerText)
             Spacer()
-            Button {
-                print("view all specialities")
-            } label: {
-                Text("View all")
-                    .foregroundColor(.gray)
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.gray)
-            }
+            ViewAllButton(callBack: {print ("Filter Cell")})
         }.padding()
         
     }

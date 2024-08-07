@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import Combine
 struct SearchBar: View {
     @ObservedObject private var viewModel:CMEViewModel
     @State private var inputSearchText:String = ""
@@ -44,31 +44,26 @@ struct SearchBar: View {
                         .presentationDetents([.medium,.large], selection: $settingsDetents)
                 })
             }
-            
             .padding(.vertical,12)
             .padding(.horizontal)
             .background(Color.white)
             .clipShape(Capsule())
             .padding([.leading,.top,.bottom],16)
             .padding(.trailing,4)
-            
-            NavigationLink(destination: CertificatesView()) {
+            Button {
+                viewModel.router?.coordinator.routeToCertificates()
+            } label: {
                 Image("certified")
                     .padding(.all,8)
                     .background(Color.white)
                     .clipShape(Circle())
             }
             .padding(.trailing,16)
-            
-        }.padding(.horizontal,10)
-            .onAppear{
-                inputSearchText = ""
-            }
+        }
+        .padding(.horizontal,10)
+        .onAppear{
+            inputSearchText = ""
+        }
     }
 }
 
-struct SearchBar_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchBar(viewModel: CMEViewModel())
-    }
-}

@@ -12,8 +12,8 @@ struct AllCourseCardView: View {
     var body: some View {
         VStack{
             HStack{
-                ImageWithHeightAndWidth(courseImage: course.imageUrl, iWidth: 85, iHeight: 68)
-                VStackCourseDetails(courseDate: course.formattedTimeStamp(date: course.date) ?? "12 Jan, 2022", courseTitle: course.title, courseSpecialtie: course.specialties.first ?? "-")
+                CourseImageView(courseImage: course.imageUrl, iHeight: 68, iWidth: 85)
+                CourseDetailsView(courseDate: course.formattedTimeStamp(date: course.date) ?? "12 Jan, 2022", courseTitle: course.title, courseSpecialtie: course.specialties.first ?? "-")
                     .padding([.leading, .trailing], 16)
             }
             .frame(minWidth: 0,maxWidth: 332)
@@ -23,12 +23,11 @@ struct AllCourseCardView: View {
             VStack(alignment: .leading,spacing: 5.0){
                 
                 HStack(alignment: .lastTextBaseline){
-                    SubCell(headerText: "Estimated time", bodyText: course.formattedEstimatedTime(from: course.estimatedTime))
+                    CourseSubDetailsView(headerText: CourseSubDetailType.estimatedTime.rawValue, bodyText: course.formattedEstimatedTime(from: course.estimatedTime))
                     DividerRectangle()
-                    SubCell(headerText: "Level of practice", bodyText: course.practiceLevel)
+                    CourseSubDetailsView(headerText: CourseSubDetailType.levelOfPractice.rawValue, bodyText: course.practiceLevel)
                     DividerRectangle()
-                    SubCell(headerText: "License", bodyText: "\(course.license)")
-                    
+                    CourseSubDetailsView(headerText: CourseSubDetailType.license.rawValue, bodyText: "\(course.license)")
                 }
                 .padding()
                 .background(Color("Natural"))

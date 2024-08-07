@@ -7,17 +7,14 @@
 
 import SwiftUI
 
-struct VStackCourseDetails: View {
+struct CourseDetailsView: View {
     var courseDate: String
     var courseTitle: String
     var courseSpecialtie: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5.0){
-            Text(courseDate)
-                .font(.subheadline)
-                .foregroundColor(.gray)
-            
+            CourseDateText(courseDate: courseDate)
             Text(courseTitle)
                 .font(.headline)
                 .fontWeight(.bold)
@@ -34,6 +31,6 @@ struct VStackCourseDetails: View {
 
 struct VStackCourseDetails_Previews: PreviewProvider {
     static var previews: some View {
-        VStackCourseDetails(courseDate: "8/8/2024", courseTitle: "EVA Pharma", courseSpecialtie: "Medical")
+        CourseDetailsView(courseDate: "8/8/2024", courseTitle: "EVA Pharma", courseSpecialtie: "Medical")
     }
 }

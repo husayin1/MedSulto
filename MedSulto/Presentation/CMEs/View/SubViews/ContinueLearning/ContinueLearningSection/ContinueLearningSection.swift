@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContinueLearningSection: View {
     @ObservedObject var viewModel: CMEViewModel
@@ -13,18 +14,11 @@ struct ContinueLearningSection: View {
         VStack{
             VStack(alignment: .leading){
                 HStack{
-                    Text("Continue Learning")
-                        .fontWeight(.semibold)
+                    CourseHeaderText(headerTxt: CoursesType.continueLearning.rawValue)
                     Spacer()
-                    NavigationLink {
-                        ContinueLearningView(viewModel: viewModel)
-                    } label: {
-                        Text("View all")
-                            .foregroundColor(.gray)
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.gray)
+                    ViewAllButton {
+                        viewModel.router?.coordinator.routeToContinueLearningCourses(viewModel: viewModel)
                     }
-                    
                 }
                 .padding(.top,30)
                 .padding(.horizontal,10)
@@ -41,17 +35,10 @@ struct ContinueLearningSection: View {
                             ContinueLearningCardView(course: course)
                         }
                     }
-                    
                 }
                 .padding(.horizontal,10)
                 .padding(.vertical,6)
             }
         }
-    }
-}
-
-struct ContinueLearningSection_Previews: PreviewProvider {
-    static var previews: some View {
-        ContinueLearningSection(viewModel: CMEViewModel())
     }
 }

@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct ImageWithHeightAndWidth: View {
+struct CourseImageView: View {
     var courseImage: String
-    var iWidth: CGFloat
     var iHeight: CGFloat
+    var iWidth: CGFloat?
+
     var body: some View {
         AsyncImage(url: URL(string: courseImage)) { phase in
             switch phase {

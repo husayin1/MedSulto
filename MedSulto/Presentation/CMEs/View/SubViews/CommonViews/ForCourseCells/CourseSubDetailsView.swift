@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SubCell: View {
+struct CourseSubDetailsView: View {
     var headerText: String
     var bodyText: String
     var body: some View {
@@ -23,6 +23,6 @@ struct SubCell: View {
 
 struct SubCell_Previews: PreviewProvider {
     static var previews: some View {
-        SubCell(headerText: "body", bodyText: "header")
+        CourseSubDetailsView(headerText: "body", bodyText: "header")
     }
 }

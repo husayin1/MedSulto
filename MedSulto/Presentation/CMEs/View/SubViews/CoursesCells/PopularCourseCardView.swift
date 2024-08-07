@@ -11,16 +11,16 @@ struct PopularCourseCardView: View {
     var course: Course
     var body: some View {
         VStack{
-            ReusableImage(courseImage: course.imageUrl,imageHeight: 90)
+            CourseImageView(courseImage: course.imageUrl,iHeight: 90)
             VStack(alignment: .leading,spacing: 5.0){
-                VStackCourseDetails(courseDate: course.formattedTimeStamp(date: course.date) ?? "12 Jan, 2022", courseTitle: course.title, courseSpecialtie: course.specialties.first ?? "-")
-                .padding(.all, 10)
+                CourseDetailsView(courseDate: course.formattedTimeStamp(date: course.date) ?? "12 Jan, 2022", courseTitle: course.title, courseSpecialtie: course.specialties.first ?? "-")
+                    .padding(.all, 10)
                 HStack(alignment: .lastTextBaseline){
-                    SubCell(headerText: "Estimated time", bodyText: course.formattedEstimatedTime(from: course.estimatedTime))
+                    CourseSubDetailsView(headerText: CourseSubDetailType.estimatedTime.rawValue, bodyText: course.formattedEstimatedTime(from: course.estimatedTime))
                     DividerRectangle()
-                    SubCell(headerText: "Level of practice", bodyText: course.practiceLevel)
+                    CourseSubDetailsView(headerText: CourseSubDetailType.levelOfPractice.rawValue, bodyText: course.practiceLevel)
                     DividerRectangle()
-                    SubCell(headerText: "License", bodyText: "\(course.license)")
+                    CourseSubDetailsView(headerText: CourseSubDetailType.license.rawValue, bodyText: "\(course.license)")
                 }
                 .padding()
                 .background(Color("Natural"))
