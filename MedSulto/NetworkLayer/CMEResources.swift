@@ -27,20 +27,19 @@ enum HTTPHeaderField: String {
     case accept = "Accept"
 }
 
-enum ContentType: String {
-    case json = "application/json"
-    case any = "*/*"
-}
-
-enum AuthorizationType {
-    case bearer
-    
-    func headerValue() -> String {
+extension HTTPHeaderField {
+    var token: String {
         switch self {
-        case .bearer:
+        case .authorization:
             return "Bearer \(Constants.bearerToken.rawValue)"
+        default:
+            return self.rawValue
         }
     }
 }
 
+enum ContentType: String {
+    case json = "application/json"
+    case any = "*/*"
+}
 

@@ -14,7 +14,7 @@ enum CMEAPIRoute: URLRequestConvertible {
     case searchForCoursesWith(name: String)
     case getCertificatesList
     
-
+    
     var method: HTTPMethod {
         switch self {
         case .getCMELandingPage, .searchForCoursesWith, .getCertificatesList:
@@ -30,13 +30,13 @@ enum CMEAPIRoute: URLRequestConvertible {
     }
     
     var parameters: [String: Any]? {
-            switch self {
-            case .getCMELandingPage, .getCertificatesList:
-                return nil
-            case .searchForCoursesWith(let name):
-                return ["SearchKeyword" : name]
-            }
+        switch self {
+        case .getCMELandingPage, .getCertificatesList:
+            return nil
+        case .searchForCoursesWith(let name):
+            return ["SearchKeyword" : name]
         }
+    }
     
     
     
@@ -46,37 +46,26 @@ enum CMEAPIRoute: URLRequestConvertible {
             return MedSultoResource.cmeLandingPage.endpoint
         case .getCertificatesList:
             return MedSultoResource.certificatesList.endpoint
-
+            
         }
     }
     
     var authorizationHeader: HTTPHeaderField? {
-        switch self {
-        case .getCMELandingPage, .searchForCoursesWith, .getCertificatesList:
-            return .authorization
-        }
+        return .authorization
     }
-    var authorizationType: AuthorizationType {
-        switch self {
-        case .getCMELandingPage, .searchForCoursesWith, .getCertificatesList:
-            return .bearer
-        }
-    }
-    
     
     func asURLRequest() throws -> URLRequest {
         let url = try Constants.baseUrl.rawValue.asURL()
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue
+        
         urlRequest.setValue(ContentType.any.rawValue, forHTTPHeaderField: HTTPHeaderField.accept.rawValue)
-        urlRequest.setValue(AuthorizationType.bearer.headerValue(), forHTTPHeaderField: HTTPHeaderField.authorization.rawValue)
-
         if let headerField = authorizationHeader {
-            urlRequest.setValue(authorizationType.headerValue(), forHTTPHeaderField: headerField.rawValue)
+            urlRequest.setValue(headerField.token, forHTTPHeaderField: HTTPHeaderField.authorization.rawValue)
         }
         
         return try encoding.encode(urlRequest, with: parameters)
     }
-
-
+    
+    
 }
