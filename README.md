@@ -19,20 +19,11 @@ Medsulto unlocks access to the latest medical updates, globally & locally as pro
 * Async-Await
 
 
+![Courses Feature](images/screen1.png)      ![Courses Feature](images/screen2.png)
+  
+![Popular_Courses Feature](images/popularCoursesScreen.png)      ![Learning_Courses Feature](images/continueLearningScreen.png)
 
-  ![Courses Feature](images/screen1.png)
+![All_Courses Feature](images/allCoursesScreen.png)      ![Certificates Feature](images/certificatesScreen.png)
   
-  ![Courses Feature](images/screen2.png)
-  
-  ![Popular_Courses Feature](images/popularCoursesScreen.png)
-  
-  ![Learning_Courses Feature](images/continueLearningScreen.png)
-  
-  ![All_Courses Feature](images/allCoursesScreen.png)
-  
-  ![Certificates Feature](images/certificatesScreen.png)
-  
-  ![Search Feature](images/filter.png)
-  
-  ![Courses Feature](images/filter2.png)
+![Search Feature](images/filter.png)      ![Courses Feature](images/filter2.png)
 
