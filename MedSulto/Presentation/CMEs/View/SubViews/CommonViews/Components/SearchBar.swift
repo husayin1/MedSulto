@@ -51,7 +51,7 @@ struct SearchBar: View {
             .padding([.leading,.top,.bottom],16)
             .padding(.trailing,4)
             Button {
-                viewModel.router?.coordinator.routeToCertificates()
+                viewModel.didTapOn.send(.viewCertificates)
             } label: {
                 Image("certified")
                     .padding(.all,8)

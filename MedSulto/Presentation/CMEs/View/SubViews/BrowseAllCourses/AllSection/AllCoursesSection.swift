@@ -16,7 +16,7 @@ struct AllCoursesSection: View {
                     CourseHeaderText(headerTxt: CoursesType.all.rawValue)
                     Spacer()
                     ViewAllButton {
-                        viewModel.router?.coordinator.routeToAllCourses(viewModel: viewModel)
+                        viewModel.didTapOn.send(.viewAllCourses)
                     }
 
                 }

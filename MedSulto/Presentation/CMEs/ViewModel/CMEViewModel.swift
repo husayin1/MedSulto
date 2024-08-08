@@ -11,18 +11,28 @@ import Stinsen
 
 class CMEViewModel: ObservableObject {
     // MARK: - Router
-    @RouterObject var router: NavigationRouter<CMECoordinator>?
+    @RouterObject private var router: NavigationRouter<CMECoordinator>?
     // MARK: - Publishers
     @Published private(set) var state: CMEViewState
     
     // MARK: - Properties
     private let repository: CMEsRepositoryProtocol
     private var cancellables: Set<AnyCancellable>
+    let didTapOn = PassthroughSubject<Routes,Never>()
+    
+    enum Routes {
+        case viewAllCourses
+        case viewPopularCourses
+        case viewContinueLearningCourses
+        case viewCertificates
+    }
+
     
     init(cancellables: Set<AnyCancellable>, state: CMEViewState){
         self.repository = CMEsRepository()
         self.cancellables = cancellables
         self.state = state
+        self.setupObserver()
     }
     
     func getAllCourses() async {
@@ -59,4 +69,23 @@ class CMEViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
+    
+    func setupObserver(){
+        didTapOn.sink { [weak self] route in
+            guard let self = self else { return }
+            switch route{
+            case .viewCertificates:
+                self.router?.coordinator.routeToCertificates()
+            case .viewPopularCourses:
+                self.router?.coordinator.routeToPopularCourses(viewModel: self)
+            case .viewContinueLearningCourses:
+                self.router?.coordinator.routeToContinueLearningCourses(viewModel: self)
+            case .viewAllCourses:
+                self.router?.coordinator.routeToAllCourses(viewModel: self)
+            }
+        }
+        .store(in: &cancellables)
+        
+    }
+    
 }

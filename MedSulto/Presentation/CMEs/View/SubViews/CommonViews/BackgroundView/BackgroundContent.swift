@@ -31,7 +31,6 @@ struct BackgroundContent<Content: View>: View {
                 }
                 
             }
-            //.navigationBarBackButtonHidden(true)
         }
     }
 }

@@ -20,8 +20,7 @@ struct SavedCoursesSection: View {
                         print("View All Saved Courses")
                     }
                 }
-                .padding(.top,30)
-                .padding(.horizontal,10)
+                .padding(.all,10)
             }
             ScrollView(.horizontal,showsIndicators: false){
                 HStack(spacing: 20){

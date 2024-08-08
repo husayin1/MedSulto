@@ -17,11 +17,10 @@ struct ContinueLearningSection: View {
                     CourseHeaderText(headerTxt: CoursesType.continueLearning.rawValue)
                     Spacer()
                     ViewAllButton {
-                        viewModel.router?.coordinator.routeToContinueLearningCourses(viewModel: viewModel)
+                        viewModel.didTapOn.send(.viewContinueLearningCourses)
                     }
                 }
-                .padding(.top,30)
-                .padding(.horizontal,10)
+                .padding(.all,10)
             }
             ScrollView(.horizontal,showsIndicators: false){
                 HStack(spacing: 20){

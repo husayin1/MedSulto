@@ -16,11 +16,10 @@ struct PopularCoursesSection: View {
                     CourseHeaderText(headerTxt: CoursesType.popular.rawValue)
                     Spacer()
                     ViewAllButton{
-                        viewModel.router?.coordinator.routeToPopularCourses(viewModel: viewModel)
+                        viewModel.didTapOn.send(.viewPopularCourses)
                     }
                 }
-                .padding(.top,30)
-                .padding(.horizontal,10)
+                .padding(10)
             }
             ScrollView(.horizontal,showsIndicators: false){
                 HStack(spacing: 20){
