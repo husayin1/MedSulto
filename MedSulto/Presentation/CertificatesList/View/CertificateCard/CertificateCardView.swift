@@ -8,44 +8,16 @@
 import SwiftUI
 
 struct CertificateCardView: View {
+    var certificate: CertificateItem
     var body: some View {
         VStack{
-            ZStack(alignment: .topTrailing){
-                Image("course")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 90)
-                    .clipped()
-                
-                Text("100 EGP")
-                    .font(.caption)
-                    .padding(6.0)
-                    .background(Color("PrimaryShades"))
-                    .cornerRadius(20.0)
-                    .padding(10.0)
-            }
-            
+            CourseImageView(courseImage: certificate.thumbnailImage, iHeight: 90)
             VStack(alignment: .leading,spacing: 5.0){
-                VStack(alignment: .leading, spacing: 5.0){
-                    Text("12 Jan, 2022")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                    
-                    Text("Cancer Survivorship: Optimizing Care and Outcomes")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .lineLimit(2)
-                    
-                    Text("Hematology-Oncology")
-                        .font(.subheadline)
-                        .foregroundColor(Color("darkGray"))
-                    
-                }
-                .padding([.leading, .trailing], 16)
-                .padding(.bottom,8)
+                CourseDetailsView(courseDate: certificate.formattedTimeStamp(date: certificate.finishDate) ?? "Not Finished yet", courseTitle: certificate.title, courseSpecialtie: certificate.specialties.first ?? "-")
+                    .padding([.leading, .trailing], 16)
+                    .padding(.bottom,8)
                 HStack(alignment: .lastTextBaseline){
-                    
-                    Text("Certificate valid through February 03, 2024")
+                    Text("Certificate valid through \(certificate.formattedTimeStamp(date: certificate.finishDate) ?? "Not Finished yet")")
                         .foregroundColor(.black.opacity(0.7))
                         .font(.system(size: 10.0))
                     Spacer()
@@ -53,7 +25,6 @@ struct CertificateCardView: View {
                 .padding()
                 .background(Color("Natural"))
             }
-            
         }
         .background(Color.white)
         .cornerRadius(15.0)
@@ -61,8 +32,3 @@ struct CertificateCardView: View {
     }
 }
 
-struct CertificateCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CertificateCardView()
-    }
-}
