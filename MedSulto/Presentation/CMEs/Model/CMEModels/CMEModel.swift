@@ -17,8 +17,8 @@ struct CMELandingResponse: Codable {
 struct DataContainer: Codable {
     let popularCourses: [Course]
     let continueCourses: [Course]
-    let savedCourses: [Course]
-    let All: [Course]
+    let SavedCourses: [Course]
+    let all: [Course]
     let pagination: Pagination
 }
 

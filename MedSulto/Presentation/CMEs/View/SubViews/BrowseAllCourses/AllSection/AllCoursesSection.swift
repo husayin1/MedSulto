@@ -6,32 +6,34 @@
 //
 
 import SwiftUI
-
+import Combine
 struct AllCoursesSection: View {
     @ObservedObject var viewModel: CMEViewModel
     var body: some View {
         VStack{
             VStack(alignment: .leading){
                 HStack{
-                    Text("Browse All Courses")
-                        .fontWeight(.semibold)
+                    CourseHeaderText(headerTxt: CoursesType.all.rawValue)
                     Spacer()
-                    NavigationLink(destination: BrowseAllCoursesView(viewModel: viewModel)){
-                        Text("View all")
-                            .foregroundColor(.gray)
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.gray)
+                    ViewAllButton {
+                        viewModel.didTapOn.send(.viewAllCourses)
                     }
-                    
+
                 }
                 .padding(.top,30)
                 .padding(.horizontal,10)
             }
             ScrollView(.horizontal,showsIndicators: false){
                 HStack(spacing: 20){
-                    
-                    ForEach(viewModel.allCourses.prefix(3), id: \.id) { course in
-                        AllCourseCardView(course: course)
+                    switch viewModel.state {
+                    case .loading:
+                        LoadingView()
+                    case .error(let message):
+                        ErrorText(errorText: message)
+                    case .loaded(let courses):
+                        ForEach(courses.all.prefix(3), id: \.id) { course in
+                            AllCourseCardView(course: course)
+                        }
                     }
                 }
                 .padding(.horizontal,10)
@@ -41,8 +43,3 @@ struct AllCoursesSection: View {
     }
 }
 
-struct AllCoursesSection_Previews: PreviewProvider {
-    static var previews: some View {
-        AllCoursesSection(viewModel: CMEViewModel())
-    }
-}

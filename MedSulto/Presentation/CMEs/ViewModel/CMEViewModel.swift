@@ -7,55 +7,85 @@
 
 import Foundation
 import Combine
+import Stinsen
 
 class CMEViewModel: ObservableObject {
-    private var cancellables = Set<AnyCancellable>()
-    @Published var popularCourses: [Course] = []
-    @Published var continueCourses: [Course] = []
-    @Published var savedCourses: [Course] = []
-    @Published var allCourses: [Course] = []
-    @Published var error: NetworkError?
-    @Published var courses: CMELandingResponse?
-    private let repository: RepositoryProtocol = Repository(networkService: CMERemoteSource())
+    // MARK: - Router
+    @RouterObject private var router: NavigationRouter<CMECoordinator>?
+    // MARK: - Publishers
+    @Published private(set) var state: CMEViewState
+    
+    // MARK: - Properties
+    private let repository: CMEsRepositoryProtocol
+    private var cancellables: Set<AnyCancellable>
+    let didTapOn = PassthroughSubject<Routes,Never>()
+    
+    enum Routes {
+        case viewAllCourses
+        case viewPopularCourses
+        case viewContinueLearningCourses
+        case viewCertificates
+    }
 
     
-    func getAllCourses() {
-          repository.getAllCourses()
-              .sink(receiveCompletion: { completion in
-                  switch completion {
-                  case .finished:
-                      print("finished")
-                      break
-                  case .failure(let error):
-                      print(error)
-                  }
-              }, receiveValue: {[weak self] response in
-                  self?.courses = response
-                  self?.popularCourses = response.data.popularCourses
-                  self?.continueCourses = response.data.continueCourses
-                  self?.savedCourses = response.data.savedCourses
-                  self?.allCourses = response.data.All
-              })
-              .store(in: &cancellables)
-      }
+    init(cancellables: Set<AnyCancellable>, state: CMEViewState){
+        self.repository = CMEsRepository()
+        self.cancellables = cancellables
+        self.state = state
+        self.setupObserver()
+    }
     
-    func searchForCourses(inputText: String){
-        repository.getSearchResult(name: inputText)
-            .sink { completion in
+    func getAllCourses() async {
+        let result = await repository.getAllCourses().publisher
+        result.receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: {[weak self] completion in
+                switch completion {
+                case .finished:
+                    print("finished")
+                    break
+                case .failure(let err):
+                    print(err)
+                    self?.state = .error(err.localizedDescription)
+                }
+            }, receiveValue: {[weak self] response in
+                self?.state = .loaded(response.data)
+            })
+            .store(in: &cancellables)
+    }
+    
+    func searchForCourses(inputText: String) async {
+        let result = await repository.getSearchResult(name: inputText).publisher
+        result
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
                 switch completion {
                 case .finished:
                     print("result is here")
                 case .failure(let err):
-                    print(err, "on search")
+                    self?.state = .error(err.localizedDescription)
                 }
             } receiveValue: { [weak self] response in
-                self?.courses = response
-                self?.popularCourses = response.data.popularCourses
-                self?.continueCourses = response.data.continueCourses
-                self?.savedCourses = response.data.savedCourses
-                self?.allCourses = response.data.All
+                self?.state = .loaded(response.data)
             }
             .store(in: &cancellables)
-
     }
+    
+    func setupObserver(){
+        didTapOn.sink { [weak self] route in
+            guard let self = self else { return }
+            switch route{
+            case .viewCertificates:
+                self.router?.coordinator.routeToCertificates()
+            case .viewPopularCourses:
+                self.router?.coordinator.routeToPopularCourses(viewModel: self)
+            case .viewContinueLearningCourses:
+                self.router?.coordinator.routeToContinueLearningCourses(viewModel: self)
+            case .viewAllCourses:
+                self.router?.coordinator.routeToAllCourses(viewModel: self)
+            }
+        }
+        .store(in: &cancellables)
+        
+    }
+    
 }

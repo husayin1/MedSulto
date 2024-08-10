@@ -6,31 +6,32 @@
 //
 
 import SwiftUI
-
+import Combine
 struct PopularCoursesSection: View {
     @ObservedObject var viewModel: CMEViewModel
-
     var body: some View {
         VStack{
             VStack(alignment: .leading){
                 HStack{
-                    Text("Popular Courses")
-                        .fontWeight(.semibold)
+                    CourseHeaderText(headerTxt: CoursesType.popular.rawValue)
                     Spacer()
-                    NavigationLink(destination: PopularCoursesView(viewModel: viewModel)) {
-                            Text("View all")
-                                .foregroundColor(.gray)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.gray)
+                    ViewAllButton{
+                        viewModel.didTapOn.send(.viewPopularCourses)
                     }
                 }
-                .padding(.top,30)
-                .padding(.horizontal,10)
+                .padding(10)
             }
             ScrollView(.horizontal,showsIndicators: false){
                 HStack(spacing: 20){
-                    ForEach(viewModel.popularCourses.prefix(4), id: \.id) { course in
-                        PopularCourseCardView(course: course)
+                    switch viewModel.state {
+                    case .loading:
+                        LoadingView()
+                    case .error(let message):
+                        ErrorText(errorText: message)
+                    case .loaded(let courses):
+                        ForEach(courses.popularCourses.prefix(4), id: \.id) { course in
+                            PopularCourseCardView(course: course)
+                        }
                     }
                 }
                 .padding(.horizontal,10)
@@ -40,8 +41,3 @@ struct PopularCoursesSection: View {
     }
 }
 
-struct PopularCoursesSection_Previews: PreviewProvider {
-    static var previews: some View {
-        PopularCoursesSection(viewModel: CMEViewModel())
-    }
-}
